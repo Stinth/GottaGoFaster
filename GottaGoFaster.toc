@@ -1,5 +1,5 @@
-## Interface: 90002
-## Version: 40000
+## Interface: 100000
+## Version: 1.0.0
 ## Title: GottaGoFaster
 ## Notes: Mythic+ (CMs) Timer & Objective Tracker W/ Timewalking Capabilities, Ace3 Edition
 ## SavedVariables: GottaGoFasterDB
