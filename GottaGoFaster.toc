@@ -1,7 +1,7 @@
 ## Interface: 100000
 ## Version: 1.0.0
 ## Title: GottaGoFaster
-## Notes: Mythic+ (CMs) Timer & Objective Tracker W/ Timewalking Capabilities, Ace3 Edition
+## Notes: Mythic+ Timer & Objective Tracker, Ace3 Edition
 ## SavedVariables: GottaGoFasterDB
 ## OptionalDeps: Ace3
 ## X-Embeds: Ace3
