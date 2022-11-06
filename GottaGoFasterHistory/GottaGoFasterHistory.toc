@@ -1,0 +1,19 @@
+## Interface: 90002
+## Version: 40000
+## Title: GottaGoFasterHistory
+## Notes: Saves History For GottaGoFaster
+## SavedVariables: GottaGoFasterHistoryDB
+## Dependencies: GottaGoFaster
+## OptionalDeps: Ace3
+## X-Embeds: Ace3
+
+Embeds.xml
+Core.lua
+Options/GetSet.lua
+Options/Init.lua
+Models/Dungeon.lua
+Models/Player.lua
+Models/Run.lua
+Models/TimeStamp.lua
+History.lua
+Display/Init.lua

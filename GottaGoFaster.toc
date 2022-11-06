@@ -1,0 +1,39 @@
+## Interface: 90002
+## Version: 40000
+## Title: GottaGoFaster
+## Notes: Mythic+ (CMs) Timer & Objective Tracker W/ Timewalking Capabilities, Ace3 Edition
+## SavedVariables: GottaGoFasterDB
+## OptionalDeps: Ace3
+## X-Embeds: Ace3
+
+Embeds.xml
+
+Init.lua
+Constants.lua
+Utility.lua
+
+Core.lua
+
+Timer/Init.lua
+Timer/Frame.lua
+Timer/Utility.lua
+
+CM/Init.lua
+CM/MobCount.lua
+CM/Utility.lua
+CM/Update.lua
+CM/Display.lua
+CM/Sync.lua
+
+TW/Init.lua
+TW/Utility.lua
+TW/Update.lua
+TW/Display.lua
+TW/Sync.lua
+
+InstanceInfo.lua
+
+Options/GettersAndSetters.lua
+Options/Init.lua
+Options/Version.lua
+Options/Update.lua

@@ -1,0 +1,38 @@
+package-as: GottaGoFaster
+
+move-folders:
+    GottaGoFaster/GottaGoFasterHistory: GottaGoFasterHistory
+
+externals:
+    GottaGoFaster/Libs/AceAddon-3.0: https://repos.curseforge.com/wow/ace3/trunk/AceAddon-3.0
+    GottaGoFaster/Libs/AceBucket-3.0: https://repos.curseforge.com/wow/ace3/trunk/AceBucket-3.0
+    GottaGoFaster/Libs/AceComm-3.0: https://repos.curseforge.com/wow/ace3/trunk/AceComm-3.0
+    GottaGoFaster/Libs/AceConfig-3.0: https://repos.curseforge.com/wow/ace3/trunk/AceConfig-3.0
+    GottaGoFaster/Libs/AceConsole-3.0: https://repos.curseforge.com/wow/ace3/trunk/AceConsole-3.0
+    GottaGoFaster/Libs/AceDB-3.0: https://repos.wowace.com/wow/ace3/trunk/AceDB-3.0
+    GottaGoFaster/Libs/AceDBOptions-3.0: https://repos.wowace.com/wow/ace3/trunk/AceDBOptions-3.0
+    GottaGoFaster/Libs/AceEvent-3.0: https://repos.wowace.com/wow/ace3/trunk/AceEvent-3.0
+    GottaGoFaster/Libs/AceGUI-3.0: https://repos.curseforge.com/wow/ace3/trunk/AceGUI-3.0
+    GottaGoFaster/Libs/AceHook-3.0: https://repos.curseforge.com/wow/ace3/trunk/AceHook-3.0
+    GottaGoFaster/Libs/AceLocale-3.0: https://repos.curseforge.com/wow/ace3/trunk/AceLocale-3.0
+    GottaGoFaster/Libs/AceSerializer-3.0: https://repos.curseforge.com/wow/ace3/trunk/AceSerializer-3.0
+    GottaGoFaster/Libs/AceTab-3.0: https://repos.curseforge.com/wow/ace3/trunk/AceTab-3.0
+    GottaGoFaster/Libs/AceTimer-3.0: https://repos.wowace.com/wow/ace3/trunk/AceTimer-3.0
+    GottaGoFaster/Libs/CallbackHandler-1.0: https://repos.curseforge.com/wow/callbackhandler/trunk/CallbackHandler-1.0
+    
+    GottaGoFasterHistory/Libs/AceAddon-3.0: https://repos.curseforge.com/wow/ace3/trunk/AceAddon-3.0
+    GottaGoFasterHistory/Libs/AceBucket-3.0: https://repos.curseforge.com/wow/ace3/trunk/AceBucket-3.0
+    GottaGoFasterHistory/Libs/AceComm-3.0: https://repos.curseforge.com/wow/ace3/trunk/AceComm-3.0
+    GottaGoFasterHistory/Libs/AceConfig-3.0: https://repos.curseforge.com/wow/ace3/trunk/AceConfig-3.0
+    GottaGoFasterHistory/Libs/AceConsole-3.0: https://repos.curseforge.com/wow/ace3/trunk/AceConsole-3.0
+    GottaGoFasterHistory/Libs/AceDB-3.0: https://repos.wowace.com/wow/ace3/trunk/AceDB-3.0
+    GottaGoFasterHistory/Libs/AceDBOptions-3.0: https://repos.wowace.com/wow/ace3/trunk/AceDBOptions-3.0
+    GottaGoFasterHistory/Libs/AceEvent-3.0: https://repos.wowace.com/wow/ace3/trunk/AceEvent-3.0
+    GottaGoFasterHistory/Libs/AceGUI-3.0: https://repos.curseforge.com/wow/ace3/trunk/AceGUI-3.0
+    GottaGoFasterHistory/Libs/AceHook-3.0: https://repos.curseforge.com/wow/ace3/trunk/AceHook-3.0
+    GottaGoFasterHistory/Libs/AceLocale-3.0: https://repos.curseforge.com/wow/ace3/trunk/AceLocale-3.0
+    GottaGoFasterHistory/Libs/AceSerializer-3.0: https://repos.curseforge.com/wow/ace3/trunk/AceSerializer-3.0
+    GottaGoFasterHistory/Libs/AceTab-3.0: https://repos.curseforge.com/wow/ace3/trunk/AceTab-3.0
+    GottaGoFasterHistory/Libs/AceTimer-3.0: https://repos.wowace.com/wow/ace3/trunk/AceTimer-3.0
+    GottaGoFasterHistory/Libs/CallbackHandler-1.0: https://repos.curseforge.com/wow/callbackhandler/trunk/CallbackHandler-1.0
+    
