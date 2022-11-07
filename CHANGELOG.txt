@@ -1,0 +1,6 @@
+v1.0.2
+- add changelog
+v1.0.1
+- toc update
+v1.0.0-Alpha
+- initial bug fixes
