@@ -35,10 +35,10 @@ function GottaGoFaster.FixCMTimer(input)
   end
 end
 
-function GottaGoFaster.CreateDungeon(name, zoneID, objectives)
+function GottaGoFaster.CreateDungeon(name, CmID, objectives)
   local data = {};
   data["name"] = name;
-  data["zoneID"] = zoneID;
+  data["CmID"] = CmID;
   data["objectives"] = objectives;
   data["msg"] = "CreateDungeon";
   local dataString = GottaGoFaster:Serialize(data);
@@ -63,10 +63,10 @@ function GottaGoFaster.SendHistory(data)
   end
 end
 
-function GottaGoFaster.AskForBestRun(zoneID, level, affixes)
+function GottaGoFaster.AskForBestRun(CmID, level, affixes)
   local data = {};
   data["msg"] = "AskForBestRun";
-  data["zoneID"] = zoneID;
+  data["CmID"] = CmID;
   data["level"] = level;
   data["affixes"] = affixes;
   local dataString = GottaGoFaster:Serialize(data);

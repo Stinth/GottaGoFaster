@@ -38,9 +38,9 @@ function GottaGoFasterHistory:ChatComm(prefix, input, distribution, sender)
     utility.DebugPrint("History Message Received");
     local status, data = GottaGoFasterHistory:Deserialize(input);
     if (status and data ~= nil and next(data) ~= nil and data["msg"] ~= nil) then
-      if (data["msg"] == "CreateDungeon" and data["name"] ~= nil and data["zoneID"] ~= nil and data["objectives"] ~= nil and next(data["objectives"]) ~= nil) then
+      if (data["msg"] == "CreateDungeon" and data["name"] ~= nil and data["CmID"] ~= nil and data["objectives"] ~= nil and next(data["objectives"]) ~= nil) then
         utility.DebugPrint("Calling Create Dungeon");
-        GottaGoFasterHistory:InitDungeon(data["name"], data["zoneID"], data["objectives"]);
+        GottaGoFasterHistory:InitDungeon(data["name"], data["CmID"], data["objectives"]);
       elseif (data["msg"] == "CreateRun") then
         utility.DebugPrint("Calling Create Run");
         GottaGoFasterHistory:StoreRun(data);
@@ -50,7 +50,7 @@ function GottaGoFasterHistory:ChatComm(prefix, input, distribution, sender)
       elseif (data["msg"] == "OpenHistory") then
         GottaGoFasterHistory:HistoryPanel();
       elseif (data["msg"] == "AskForBestRun") then
-        local run = GottaGoFasterHistory:FindBestRun(data["zoneID"], data["level"], data["affixes"]);
+        local run = GottaGoFasterHistory:FindBestRun(data["CmID"], data["level"], data["affixes"]);
         GottaGoFasterHistory:SendBestRun(run);
       end
     end

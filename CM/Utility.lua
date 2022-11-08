@@ -134,11 +134,11 @@ function GottaGoFaster.BuildCMTooltip()
   end
 end
 
-function GottaGoFaster.InitCM(currentZoneID)
+function GottaGoFaster.InitCM(CmID, currentZoneID)
   GottaGoFaster.Utility.DebugPrint("Player Entered Challenge Mode");
   GottaGoFaster.WipeCM();
   GottaGoFaster.Utility.DebugPrint("Wiping CM");
-  GottaGoFaster.SetupCM(currentZoneID);
+  GottaGoFaster.SetupCM(CmID, currentZoneID);
   GottaGoFaster.Utility.DebugPrint("Setting Up CM");
   GottaGoFaster.UpdateCMTimer();
   GottaGoFaster.Utility.DebugPrint("Setting Up Timer");

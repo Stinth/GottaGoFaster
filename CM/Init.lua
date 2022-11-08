@@ -2,7 +2,7 @@ local ggf = GottaGoFaster;
 local constants = ggf.Constants;
 local utility = ggf.Utility;
 
-function GottaGoFaster.SetupCM(currentZoneID)
+function GottaGoFaster.SetupCM(CmID, currentZoneID)
   local _, _, steps = C_Scenario.GetStepInfo();
   local cmLevel, affixes, empowered = C_ChallengeMode.GetActiveKeystoneInfo();
   local cmID = C_ChallengeMode.GetActiveChallengeMapID();
@@ -63,8 +63,8 @@ function GottaGoFaster.SetupCM(currentZoneID)
 
   GottaGoFaster.BuildCMTooltip();
   GottaGoFaster.HideObjectiveTracker();
-  GottaGoFaster.CreateDungeon(GottaGoFaster.CurrentCM["Name"], GottaGoFaster.CurrentCM["ZoneID"], GottaGoFaster.CurrentCM["Bosses"]);
-  GottaGoFaster.AskForBestRun(GottaGoFaster.CurrentCM["ZoneID"], GottaGoFaster.CurrentCM["Level"], GottaGoFaster.CurrentCM["Affixes"]);
+  GottaGoFaster.CreateDungeon(GottaGoFaster.CurrentCM["Name"], GottaGoFaster.CurrentCM["CmID"], GottaGoFaster.CurrentCM["Bosses"]);
+  GottaGoFaster.AskForBestRun(GottaGoFaster.CurrentCM["CmID"], GottaGoFaster.CurrentCM["Level"], GottaGoFaster.CurrentCM["Affixes"]);
 end
 
 function GottaGoFaster.SetupFakeCM()

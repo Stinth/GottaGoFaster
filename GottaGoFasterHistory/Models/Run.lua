@@ -126,12 +126,12 @@ function GottaGoFasterHistory:MatchAffixes(a1, a2)
   return (state == true and counter == 0);
 end
 
-function GottaGoFasterHistory:FindBestRun(zoneID, level, affixes)
+function GottaGoFasterHistory:FindBestRun(CmID, level, affixes)
   local history = GottaGoFasterHistory:GetHistory();
   local run = nil;
   local time = 9999;
-  if (history[zoneID] ~= nil and next(history[zoneID]) ~= nil) then
-    local dungeon = history[zoneID];
+  if (history[CmID] ~= nil and next(history[CmID]) ~= nil) then
+    local dungeon = history[CmID];
     for k, v in pairs(dungeon["runs"]) do
       if (v["level"] == level and GottaGoFasterHistory:MatchAffixes(v["affixes"], affixes)) then
         local cTime = GottaGoFaster.CalculateRunTime(v["startTime"], v["endTime"], v["deaths"], v["corrupt"]);

@@ -10,15 +10,15 @@ function GottaGoFasterHistory:InitModels()
   GottaGoFasterHistory:InitModelTimeStamp();
 end
 
-function GottaGoFasterHistory:InitDungeon(name, zoneID, objectives)
-  if (GottaGoFasterHistory:FindDungeonByZoneID(zoneID) == nil and name ~= nil and zoneID ~= nil and next(objectives) ~= nil) then
-    GottaGoFasterHistory.db.profile.History[zoneID] = GottaGoFasterHistory.Models.Dungeon.New(name, zoneID, objectives);
+function GottaGoFasterHistory:InitDungeon(name, CmID, objectives)
+  if (GottaGoFasterHistory:FindDungeonByCmID(CmID) == nil and name ~= nil and CmID ~= nil and next(objectives) ~= nil) then
+    GottaGoFasterHistory.db.profile.History[CmID] = GottaGoFasterHistory.Models.Dungeon.New(name, CmID, objectives);
   end
 end
 
 function GottaGoFasterHistory:StoreRun(cCM)
-  if (cCM and next(cCM) ~= nil and cCM["ZoneID"]) then
-    local k, d = GottaGoFasterHistory:FindDungeonByZoneID(cCM["ZoneID"]);
+  if (cCM and next(cCM) ~= nil and cCM["CmID"]) then
+    local k, d = GottaGoFasterHistory:FindDungeonByCmID(cCM["CmID"]);
     if (cCM["Completed"] == true and d ~= nil) then
       local corrupt = false;
 

@@ -194,7 +194,7 @@ function GottaGoFaster.WhereAmI()
   GottaGoFaster.Utility.DebugPrint("Difficulty: " .. difficulty);
   GottaGoFaster.Utility.DebugPrint("Zone ID: " .. currentZoneID);
   if (difficulty == 8 and C_ChallengeMode.GetActiveChallengeMapID() ~= nil) then
-    GottaGoFaster.InitCM(currentZoneID)
+    GottaGoFaster.InitCM(C_ChallengeMode.GetActiveChallengeMapID(), currentZoneID);
   else
     GottaGoFaster.ResetState()
   end

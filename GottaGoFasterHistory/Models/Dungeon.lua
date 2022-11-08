@@ -2,10 +2,10 @@
 -- Dungeon
 local Dungeon = {}
 
-function Dungeon.New(name, zoneID, objectives)
+function Dungeon.New(name, CmID, objectives)
   local self = {}
   self.name = name;
-  self.zoneID = zoneID;
+  self.CmID = CmID;
   self.objectives = objectives;
   self.runs = {};
   return self
@@ -19,12 +19,12 @@ function Dungeon.SetName(self, name)
   self.name = name
 end
 
-function Dungeon.GetZoneID(self)
-  return self.zoneID
+function Dungeon.GetCmID(self)
+  return self.CmID
 end
 
-function Dungeon.SetZoneID(self, zoneID)
-  self.zoneID = zoneID
+function Dungeon.SetCmID(self, CmID)
+  self.CmID = CmID
 end
 
 function Dungeon.GetObjectives(self)
@@ -51,13 +51,13 @@ function GottaGoFasterHistory:InitModelDungeon()
   GottaGoFasterHistory.Models.Dungeon = Dungeon;
 end
 
-function GottaGoFasterHistory:FindDungeonByZoneID(zoneID)
+function GottaGoFasterHistory:FindDungeonByCmID(CmID)
   if (GottaGoFasterHistory.db.profile.History == nil) then
     GottaGoFasterHistory.db.profile.History = {};
   end
   if (next(GottaGoFasterHistory.db.profile.History) ~= nil) then
-    if (GottaGoFasterHistory.db.profile.History[zoneID] and next(GottaGoFasterHistory.db.profile.History[zoneID]) ~= nil) then
-      return zoneID, GottaGoFasterHistory.db.profile.History[zoneID];
+    if (GottaGoFasterHistory.db.profile.History[CmID] and next(GottaGoFasterHistory.db.profile.History[CmID]) ~= nil) then
+      return CmID, GottaGoFasterHistory.db.profile.History[CmID];
     end
   end
   return nil, nil;

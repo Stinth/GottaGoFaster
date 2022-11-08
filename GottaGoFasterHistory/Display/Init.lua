@@ -265,7 +265,7 @@ function ggfh:DrawData(container, group)
     ggfh.Filter = defaultFilter();
   end
   if (group ~= "Introduction") then
-    local _, history = ggfh:FindDungeonByZoneID(group);
+    local _, history = ggfh:FindDungeonByCmID(group);
     scroll = ScrollContainer(container);
     runs = FilterRuns(history["runs"]);
     objectives = history["objectives"];
