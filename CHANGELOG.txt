@@ -1,3 +1,5 @@
+v1.2.1
+- fixed breaking typo
 v1.2.0
 - option added to show current pull count
 v1.1.0

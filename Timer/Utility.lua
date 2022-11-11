@@ -76,7 +76,7 @@ function GottaGoFaster.ObjectiveString(boss, curValue, finalValue)
 end
 
 function GottaGoFaster.ObjectiveEnemyString(boss, curValue, finalValue)
-  local currentPull = GottaGOFaster.CurrentCM["CurrentPull"]
+  local currentPull = GottaGoFaster.CurrentCM["CurrentPull"]
   local percent = (curValue / finalValue) * 100;
   local currentPullCount, currentPullPercet = 0, 0
   if (currentPull ~= nil) then
