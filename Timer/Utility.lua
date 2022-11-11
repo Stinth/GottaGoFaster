@@ -76,13 +76,29 @@ function GottaGoFaster.ObjectiveString(boss, curValue, finalValue)
 end
 
 function GottaGoFaster.ObjectiveEnemyString(boss, curValue, finalValue)
+  local currentPull = GottaGOFaster.CurrentCM["CurrentPull"]
   local percent = (curValue / finalValue) * 100;
-  if (GottaGoFaster.GetMobPoints(nil)) then
-    return string.format("|c%s%s - %.1f%% (%d/%d)|r", GottaGoFaster.db.profile.ObjectiveColor, boss, percent, curValue, finalValue);
-  else
-    return string.format("|c%s%s - %.1f%%|r", GottaGoFaster.db.profile.ObjectiveColor, boss, percent);
+  local currentPullCount, currentPullPercet = 0, 0
+  if (currentPull ~= nil) then
+    for _, value in pairs(currentPull) do 
+      if value ~= "DEAD" then
+        currentPullCount = currentPullCount + value[1]
+        currentPullPercet = currentPullPercet + value[2]
+      end
+    end
   end
-
+  if (GottaGoFaster.GetPullCountToggle(nil) and currentPullCount > 0) then
+    if (GottaGoFaster.GetMobPoints(nil)) then
+      return string.format("|c%s%s - %.1f%% (%d/%d) +%d [%.1f%%]|r", GottaGoFaster.db.profile.ObjectiveColor, "Forces", percent, curValue, finalValue, currentPullCount, currentPullPercet);
+    else
+      return string.format("|c%s%s - %.1f%% +[%.1f%%]|r", GottaGoFaster.db.profile.ObjectiveColor, "Forces", percent, currentPullPercet);
+    end
+  end
+  if (GottaGoFaster.GetMobPoints(nil)) then
+    return string.format("|c%s%s - %.1f%% (%d/%d)|r", GottaGoFaster.db.profile.ObjectiveColor, "Forces", percent, curValue, finalValue);
+  else
+    return string.format("|c%s%s - %.1f%%|r", GottaGoFaster.db.profile.ObjectiveColor, "Forces", percent);
+  end
 end
 
 

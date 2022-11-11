@@ -66,10 +66,10 @@ function GottaGoFaster.InitFrame()
   GottaGoFasterFrame:EnableMouse(GottaGoFaster.unlocked);
   GottaGoFasterTimerFrame:SetHeight(40);
   GottaGoFasterTimerFrame:SetWidth(GottaGoFaster.minWidth);
-  GottaGoFasterTimerFrame:SetPoint("TOP", GottaGoFaster.db.profile.TimerX, GottaGoFaster.db.profile.TimerY);
+  GottaGoFasterTimerFrame:SetPoint("TOPLEFT", GottaGoFaster.db.profile.TimerX, GottaGoFaster.db.profile.TimerY);
   GottaGoFasterObjectiveFrame:SetHeight(300);
   GottaGoFasterObjectiveFrame:SetWidth(GottaGoFaster.minWidth);
-  GottaGoFasterObjectiveFrame:SetPoint("TOP", GottaGoFaster.db.profile.ObjectiveX, GottaGoFaster.db.profile.ObjectiveY);
+  GottaGoFasterObjectiveFrame:SetPoint("TOPLEFT", GottaGoFaster.db.profile.ObjectiveX, GottaGoFaster.db.profile.ObjectiveY);
 
   -- Set Font Settings
   GottaGoFasterTimerFrame.font:SetAllPoints(true);

@@ -45,7 +45,7 @@ end
 function GottaGoFaster.SetTimerX(info, value)
   GottaGoFaster.db.profile.TimerX = value;
   GottaGoFasterTimerFrame:ClearAllPoints();
-  GottaGoFasterTimerFrame:SetPoint("TOP", GottaGoFaster.db.profile.TimerX, GottaGoFaster.db.profile.TimerY);
+  GottaGoFasterTimerFrame:SetPoint("TOPLEFT", GottaGoFaster.db.profile.TimerX, GottaGoFaster.db.profile.TimerY);
 end
 
 function GottaGoFaster.GetTimerY(info)
@@ -55,7 +55,7 @@ end
 function GottaGoFaster.SetTimerY(info, value)
   GottaGoFaster.db.profile.TimerY = value;
   GottaGoFasterTimerFrame:ClearAllPoints();
-  GottaGoFasterTimerFrame:SetPoint("TOP", GottaGoFaster.db.profile.TimerX, GottaGoFaster.db.profile.TimerY);
+  GottaGoFasterTimerFrame:SetPoint("TOPLEFT", GottaGoFaster.db.profile.TimerX, GottaGoFaster.db.profile.TimerY);
 end
 
 function GottaGoFaster.GetTimerFont(info)
@@ -102,7 +102,7 @@ end
 function GottaGoFaster.SetObjectiveX(info, value)
   GottaGoFaster.db.profile.ObjectiveX = value;
   GottaGoFasterObjectiveFrame:ClearAllPoints();
-  GottaGoFasterObjectiveFrame:SetPoint("TOP", GottaGoFaster.db.profile.ObjectiveX, GottaGoFaster.db.profile.ObjectiveY);
+  GottaGoFasterObjectiveFrame:SetPoint("TOPLEFT", GottaGoFaster.db.profile.ObjectiveX, GottaGoFaster.db.profile.ObjectiveY);
 end
 
 function GottaGoFaster.GetObjectiveY(info)
@@ -112,7 +112,7 @@ end
 function GottaGoFaster.SetObjectiveY(info, value)
   GottaGoFaster.db.profile.ObjectiveY = value;
   GottaGoFasterObjectiveFrame:ClearAllPoints();
-  GottaGoFasterObjectiveFrame:SetPoint("TOP", GottaGoFaster.db.profile.ObjectiveX, GottaGoFaster.db.profile.ObjectiveY);
+  GottaGoFasterObjectiveFrame:SetPoint("TOPLEFT", GottaGoFaster.db.profile.ObjectiveX, GottaGoFaster.db.profile.ObjectiveY);
 end
 
 function GottaGoFaster.GetObjectiveFontSize(info)
@@ -339,6 +339,14 @@ function GottaGoFaster.SetTimerTooltip(info, value)
     GottaGoFasterTimerFrame:SetScript("OnEnter", nil);
     GottaGoFasterTimerFrame:SetScript("OnLeave", nil);
   end
+end
+
+function GottaGoFaster.GetPullCountToggle(info)
+  return GottaGoFaster.db.profile.PullCountToggle;
+end
+
+function GottaGoFaster.SetPullCountToggle(info, value)
+  GottaGoFaster.db.profile.PullCountToggle = value;
 end
 
 function GottaGoFaster.GetAutoDialog(info)

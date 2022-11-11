@@ -15,7 +15,7 @@ function GottaGoFaster.ResizeFrame()
   end
   GottaGoFasterObjectiveFrame:SetWidth(width);
   GottaGoFasterTimerFrame:SetWidth(width);
-  GottaGoFasterFrame:SetWidth(width);
+  --GottaGoFasterFrame:SetWidth(width);
 end
 
 function GottaGoFaster.ShowFrames()

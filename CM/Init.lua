@@ -29,6 +29,7 @@ function GottaGoFaster.SetupCM(CmID, currentZoneID)
   GottaGoFaster.CurrentCM["Bosses"] = {};
   GottaGoFaster.CurrentCM["IncreaseTimers"] = {};
   GottaGoFaster.CurrentCM["BestRun"] = {};
+  GottaGoFaster.CurrentCM["CurrentPull"] = {};
 
   if (cmLevel) then
     GottaGoFaster.CurrentCM["Bonus"] = C_ChallengeMode.GetPowerLevelDamageHealthMod(cmLevel);
@@ -89,7 +90,7 @@ function GottaGoFaster.SetupFakeCM()
   GottaGoFaster.CurrentCM["CurrentValues"] = {1, 1, 0, 0, 40};
   GottaGoFaster.CurrentCM["FinalValues"] = {1, 1, 1, 1, 160};
   GottaGoFaster.CurrentCM["ObjectiveTimes"] = {"1:15.460", "3:45.012"};
-  GottaGoFaster.CurrentCM["Bosses"] = {"Rokmora", "Ularogg Cragshaper", "Naraxas", "Dargrul", "Enemy Forces"};
+  GottaGoFaster.CurrentCM["Bosses"] = {"Rokmora", "Ularogg Cragshaper", "Naraxas", "Dargrul", "Forces"};
   GottaGoFaster.CurrentCM["IncreaseTimers"] = {};
   GottaGoFaster.CurrentCM["BestRun"] = {};
 
