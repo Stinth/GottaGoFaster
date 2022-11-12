@@ -6,7 +6,7 @@ function GottaGoFaster.InitOptions()
       GoldTimer = true,
       TimerType = "TrueTimerMS",
       FrameAnchor = "RIGHT",
-      FrameX = 0,
+      FrameX = -150,
       FrameY = 0,
       TimerAlign = "LEFT",
       TimerX = 30,
