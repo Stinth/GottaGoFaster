@@ -1,3 +1,7 @@
+v1.2.3
+- check for in CM when reseting currentPull
+v1.2.2
+- better initial frame position
 v1.2.1
 - fixed breaking typo
 v1.2.0
