@@ -32,7 +32,7 @@ function GottaGoFaster.InitOptions()
       LevelInObjectives = false,
       AffixesInObjectives = true,
       IncreaseInObjectives = true,
-      DeathInObjectives = false,
+      DeathInObjectives = true,
       MobPoints = true,
       IndividualMobValue = true,
       UseMdt = true,
