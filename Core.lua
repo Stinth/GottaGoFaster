@@ -122,20 +122,27 @@ function GottaGoFaster:UNIT_THREAT_LIST_UPDATE(event, unit)
 end
 
 function GottaGoFaster:PLAYER_REGEN_ENABLED()
-  GottaGoFaster.Utility.DebugPrint("Player Regen Enabled");
-  GottaGoFaster.CurrentCM["CurrentPull"] = nil;
-  GottaGoFaster.UpdateCMObjectives();
+  -- reset threat list
+  if (GottaGoFaster.inCM) then
+    GottaGoFaster.Utility.DebugPrint("Player Regen Enabled");
+    GottaGoFaster.CurrentCM["CurrentPull"] = nil;
+    GottaGoFaster.UpdateCMObjectives();
+  end
+
 end
 
 function GottaGoFaster:PLAYER_DEAD()
-  GottaGoFaster.Utility.DebugPrint("Player Dead");
-  GottaGoFaster.CurrentCM["CurrentPull"] = nil;
-  GottaGoFaster.UpdateCMObjectives();
+  -- reset threat list
+  if (GottaGoFaster.inCM) then
+    GottaGoFaster.Utility.DebugPrint("Player Dead");
+    GottaGoFaster.CurrentCM["CurrentPull"] = nil;
+    GottaGoFaster.UpdateCMObjectives();
+  end
 end
 
 function GottaGoFaster:COMBAT_LOG_EVENT_UNFILTERED()
   GottaGoFaster.Utility.DebugPrint("Combat Log Event Unfiltered");
-  if (GottaGoFaster.inCM) then
+  if (GottaGoFaster.inCM and GottaGoFaster.CurrentCM) then
     local _, event, _, sourceGUID, sourceName, _, _, destGUID, destName, _, _, spellID, spellName = CombatLogGetCurrentEventInfo()
     if event == "UNIT_DIED" then
       if GottaGoFaster.CurrentCM.CurrentPull and GottaGoFaster.CurrentCM.CurrentPull[destGUID] then
