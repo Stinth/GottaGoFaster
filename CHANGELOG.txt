@@ -1,3 +1,5 @@
+v1.2.4
+- toc update
 v1.2.3
 - check for in CM when reseting currentPull
 v1.2.2
