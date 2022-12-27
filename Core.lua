@@ -109,7 +109,7 @@ function GottaGoFaster:UNIT_THREAT_LIST_UPDATE(event, unit)
       local id = select(6, strsplit("-", guid))
       if guid and not CurrentCM.CurrentPull[guid] then
         local npc_id = select(6, strsplit("-", guid))
-        if npc_id then              
+        if npc_id and MDT then              
           local count, maxCountNormal, _, _ = MDT:GetEnemyForces(tonumber(npc_id))
           if count and count ~= 0 then
             CurrentCM.CurrentPull[guid] = {count, (count / maxCountNormal) * 100}
