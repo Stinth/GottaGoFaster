@@ -1,3 +1,8 @@
+v1.2.5
+- fixed multiple count in same tooltip
+- fixed lua error when not using MDT
+- fixed boss objective times updating when forces completed
+- toc update
 v1.2.4
 - toc update
 v1.2.3
