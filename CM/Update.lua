@@ -23,7 +23,10 @@ function GottaGoFaster.UpdateCMInformation()
           end
           if (curValue == finalValue or ((i == GottaGoFaster.CurrentCM["Steps"]) and (curValue == 100))) then
             -- Add Objective Time
-            GottaGoFaster.CurrentCM["ObjectiveTimes"][i] = GottaGoFaster.ObjectiveCompleteString(GottaGoFaster.Utility.ShortenStr(GottaGoFaster.CurrentCM["Time"], 1));
+            if (not GottaGoFaster.CurrentCM["ObjectiveTimes"][i]) then
+              GottaGoFaster.CurrentCM["ObjectiveTimes"][i] = GottaGoFaster.ObjectiveCompleteString(
+                GottaGoFaster.Utility.ShortenStr(GottaGoFaster.CurrentCM["Time"], 1));
+            end
           end
         elseif (GottaGoFaster.CurrentCM["CurrentValues"][i] == GottaGoFaster.CurrentCM["FinalValues"][i] and not GottaGoFaster.CurrentCM["ObjectiveTimes"][i]) then
           -- Objective Already Complete But No Time Filled Out (Re-Log / Re-Zone)
