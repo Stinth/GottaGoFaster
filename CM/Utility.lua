@@ -257,7 +257,7 @@ function GottaGoFaster.AddMobPointsToTooltip()
     if (count ~= nil and maxCount ~= nil) then
       local weight = (count / maxCount) * 100;
       local appendString = string.format(" - "..count.." (%.2f%%) ", weight);
-
+      local tooltipText = GameTooltip.TextLeft1:GetText();
       if appendString and tooltipText then
         if not strmatch(tooltipText, " %- "..count) then
           GameTooltip:AppendText(appendString);
