@@ -1,3 +1,6 @@
+v1.2.6
+- fix count in tooltip not working
+- toc update
 v1.2.5
 - fixed multiple count in same tooltip
 - fixed lua error when not using MDT
