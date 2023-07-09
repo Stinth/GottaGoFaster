@@ -189,22 +189,29 @@ function GottaGoFaster.InitOptions()
         name = "Display: Frame",
         type = "group",
         args = {
-          unlocked = {
+          DemoMode = {
             order = 1,
+            type = "execute",
+            name = "Demo Mode",
+            desc = "Shows GottaGoFaster Outside CM For Demo / Setup Purposes",
+            func = GottaGoFaster.ToggleDemoMode,
+          },
+          unlocked = {
+            order = 2,
             type = "toggle",
             name = "Unlocked",
             desc = "Toggles Unlock State Of Timer Frame",
             get = GottaGoFaster.GetUnlocked,
             set = GottaGoFaster.SetUnlocked,
           },
-          ObjectiveCollapsed = {
-            order = 2,
-            type = "toggle",
-            name = "Objective Tracker Collapse",
-            desc = "Collapse Objective Tracker When Leaving CM / Timewalker",
-            get = GottaGoFaster.GetObjectiveCollapsed,
-            set = GottaGoFaster.SetObjectiveCollapsed,
-          },
+          -- ObjectiveCollapsed = {
+          --   order = 2,
+          --   type = "toggle",
+          --   name = "Objective Tracker Collapse",
+          --   desc = "Collapse Objective Tracker When Leaving CM / Timewalker",
+          --   get = GottaGoFaster.GetObjectiveCollapsed,
+          --   set = GottaGoFaster.SetObjectiveCollapsed,
+          -- },
           TimerX = {
             order = 3,
             type = "range",
@@ -248,13 +255,6 @@ function GottaGoFaster.InitOptions()
             step = 1,
             get = GottaGoFaster.GetObjectiveY,
             set = GottaGoFaster.SetObjectiveY,
-          },
-          DemoMode = {
-            order = 19,
-            type = "execute",
-            name = "Demo Mode",
-            desc = "Shows GottaGoFaster Outside CM For Demo / Setup Purposes",
-            func = GottaGoFaster.ToggleDemoMode,
           },
         },
       },

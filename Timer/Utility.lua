@@ -128,9 +128,9 @@ end
 
 function GottaGoFaster.ShowObjectiveTracker()
   ObjectiveTrackerFrame:SetParent(UIParent);
-  if (GottaGoFaster.db.profile.ObjectiveCollapsed == true) then
-    ObjectiveTracker_Collapse();
-  end
+  -- if (GottaGoFaster.db.profile.ObjectiveCollapsed == true) then
+  --   ObjectiveTracker_Collapse();
+  -- end
 end
 
 function GottaGoFaster.ToggleDemoMode()
