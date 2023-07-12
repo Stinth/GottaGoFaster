@@ -1,3 +1,5 @@
+v1.2.8
+- bump toc
 v1.2.7
 - remove option to automatically toggle away objective tracker outside dungeons
 - GGF still hides objective tracker while inside a M+ dungeon

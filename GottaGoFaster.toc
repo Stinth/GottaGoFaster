@@ -1,4 +1,4 @@
-## Interface: 100100
+## Interface: 100105
 ## Version: 1.2.7
 ## Title: GottaGoFaster
 ## Notes: Mythic+ Timer & Objective Tracker, Ace3 Edition
