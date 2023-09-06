@@ -1,5 +1,5 @@
-## Interface: 100000
-## Version: 1.1.0
+## Interface: 100107
+## Version: 1.2.9
 ## Title: GottaGoFasterHistory
 ## Notes: Saves History For GottaGoFaster
 ## SavedVariables: GottaGoFasterHistoryDB
