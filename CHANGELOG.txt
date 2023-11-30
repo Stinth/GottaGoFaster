@@ -1,3 +1,5 @@
+v1.2.10
+- fix current pull count sometimes being inaccurate
 v1.2.9
 - bump toc
 v1.2.8
