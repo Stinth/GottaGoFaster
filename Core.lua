@@ -99,7 +99,6 @@ function GottaGoFaster:UNIT_THREAT_LIST_UPDATE(event, unit)
   if (GottaGoFaster.inCM and InCombatLockdown()) then
     GottaGoFaster.Utility.DebugPrint("Unit Threat List Update");
     local CurrentCM = GottaGoFaster.CurrentCM;
-    CurrentCM["test"] = unit;
     if CurrentCM["CurrentPull"] == nil then
       CurrentCM["CurrentPull"] = {};
     end
@@ -146,7 +145,7 @@ function GottaGoFaster:COMBAT_LOG_EVENT_UNFILTERED()
     local _, event, _, sourceGUID, sourceName, _, _, destGUID, destName, _, _, spellID, spellName = CombatLogGetCurrentEventInfo()
     if event == "UNIT_DIED" then
       if GottaGoFaster.CurrentCM.CurrentPull and GottaGoFaster.CurrentCM.CurrentPull[destGUID] then
-        GottaGoFaster.CurrentCM.CurrentPull[destGUID] = nil
+        GottaGoFaster.CurrentCM.CurrentPull[destGUID] = "DEAD"
       end
     end
     GottaGoFaster.UpdateCMObjectives();
