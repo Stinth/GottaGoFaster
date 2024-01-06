@@ -26,6 +26,9 @@ function GottaGoFaster:OnEnable()
     self:RegisterEvent("SCENARIO_POI_UPDATE");
     self:RegisterEvent("WORLD_STATE_TIMER_START");
     self:RegisterEvent("ZONE_CHANGED_NEW_AREA")
+    -- Automatic slotting of keystone
+    self:RegisterEvent("CHALLENGE_MODE_KEYSTONE_RECEPTABLE_OPEN")
+    self:RegisterEvent("CHALLENGE_MODE_KEYSTONE_SLOTTED")
     self:RegisterChatCommand("ggf", "ChatCommand");
     self:RegisterChatCommand("GottaGoFaster", "ChatCommand");
     self:RegisterComm("GottaGoFaster", "ChatComm");
@@ -172,6 +175,18 @@ end
 function GottaGoFaster:GOSSIP_SHOW()
   if (ggf.inCM == true and ggf.CurrentCM ~= nil and next(ggf.CurrentCM) ~= nil) then
     GottaGoFaster.HandleGossip();
+  end
+end
+
+function GottaGoFaster:CHALLENGE_MODE_KEYSTONE_RECEPTABLE_OPEN()
+  if (GottaGoFaster.GetAutoSlotKeystone()) then
+    GottaGoFaster.SlotMatchingKeystone()
+  end
+end
+
+function GottaGoFaster:CHALLENGE_MODE_KEYSTONE_SLOTTED()
+  if (GottaGoFaster.GetAutoSlotKeystone()) then
+    CloseAllBags()
   end
 end
 

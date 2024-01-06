@@ -45,6 +45,7 @@ function GottaGoFaster.InitOptions()
       AutoDialog = false,
       SpyHelper = true,
       BestReport = true,
+      AutoSlotKeystone = true,
     },
   }
   local options = {
@@ -169,15 +170,23 @@ function GottaGoFaster.InitOptions()
             get = GottaGoFaster.GetBestReport,
             set = GottaGoFaster.SetBestReport,
           },
-          Changelog = {
+          AutoSlotKeystone = {
             order = 15,
+            type = "toggle",
+            name = "Auto Slot Keystone",
+            desc = "Automatically slots your keystone when interacting with the font of power",
+            get = GottaGoFaster.GetAutoSlotKeystone,
+            set = GottaGoFaster.SetAutoSlotKeystone,
+          },
+          Changelog = {
+            order = 16,
             name = "Changelog",
             desc = "GottaGoFaster Changelog",
             type = "execute",
             func = GottaGoFaster.Changelog,
           },
           History = {
-            order = 16,
+            order = 17,
             name = "History",
             desc = "GottaGoFaster History - Display Of Your Runs",
             type = "execute",

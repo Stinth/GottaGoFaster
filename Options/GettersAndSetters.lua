@@ -373,6 +373,14 @@ function GottaGoFaster.SetBestReport(info, value)
   GottaGoFaster.db.profile.BestReport = value;
 end
 
+function GottaGoFaster.GetAutoSlotKeystone(info)
+  return GottaGoFaster.db.profile.AutoSlotKeystone;
+end
+
+function GottaGoFaster.SetAutoSlotKeystone(info, value)
+  GottaGoFaster.db.profile.AutoSlotKeystone = value;
+end
+
 function GottaGoFaster.History()
   local data = {["msg"] = "OpenHistory"};
   local dataString = GottaGoFaster:Serialize(data);

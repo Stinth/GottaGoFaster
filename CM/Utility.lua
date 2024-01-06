@@ -266,3 +266,39 @@ function GottaGoFaster.AddMobPointsToTooltip()
     end
   end
 end
+
+
+function GottaGoFaster.SlotMatchingKeystone()
+  -- Thanks to Reloe for this code
+  local keyIDs = {
+    [138019] = true, -- Legion
+    [158923] = true, -- Battle for Azeroth
+    [180653] = true, -- Shadowlands
+    [186159] = true, -- Dragonflight
+    [187786] = true, -- Timewalking
+    [151086] = true, -- Tournament Realm
+  }
+  local index = select(3, GetInstanceInfo())
+  if index == 8 or index == 23 then
+    for bagID = 0, NUM_BAG_SLOTS do
+      for invID = 1, C_Container.GetContainerNumSlots(bagID) do
+        local itemID = C_Container.GetContainerItemID(bagID, invID)
+        if itemID and (keyIDs[itemID]) then 
+          local item = ItemLocation:CreateFromBagAndSlot(bagID, invID)
+          if item:IsValid() then
+            local canuse = C_ChallengeMode.CanUseKeystoneInCurrentMap(item)
+            if canuse then
+              C_Container.PickupContainerItem(bagID, invID)
+              C_Timer.After(0.1, function()
+                if CursorHasItem() then
+                    C_ChallengeMode.SlotKeystone()
+                end
+              end)
+              break
+            end
+          end
+        end
+      end
+    end
+  end
+end
