@@ -33,12 +33,11 @@ function GottaGoFaster.SetupTW(currentZoneID)
   GottaGoFaster.CurrentTW["Bosses"] = {};
 
   for i = 1, steps do
-    local name, _, status, curValue, finalValue = C_Scenario.GetCriteriaInfo(i);
-    name = string.gsub(name, " defeated", "");
-    GottaGoFaster.CurrentTW["CurrentValues"][i] = curValue;
-    GottaGoFaster.CurrentTW["FinalValues"][i] = finalValue;
-    GottaGoFaster.CurrentTW["Bosses"][i] = name;
-    if (curValue ~= 0) then
+    local criteriaInfo = C_ScenarioInfo.GetCriteriaInfo(i);
+    GottaGoFaster.CurrentTW["CurrentValues"][i] = criteriaInfo.quantity;
+    GottaGoFaster.CurrentTW["FinalValues"][i] = criteriaInfo.totalQuantity;
+    GottaGoFaster.CurrentTW["Bosses"][i] = string.gsub(criteriaInfo.description, " defeated", "");;
+    if (criteriaInfo.quantity ~= 0) then
       GottaGoFaster.CurrentTW["LateStart"] = true;
       GottaGoFaster.StartTW();
     end

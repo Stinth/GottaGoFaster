@@ -47,13 +47,10 @@ function GottaGoFaster.SetupCM(CmID, currentZoneID)
   end
 
   for i = 1, steps do
-    local name, _, status, curValue, finalValue, _, _, mobPoints = C_Scenario.GetCriteriaInfo(i);
-    GottaGoFaster.CurrentCM["CurrentValues"][i] = curValue;
-    GottaGoFaster.CurrentCM["FinalValues"][i] = finalValue;
-    GottaGoFaster.CurrentCM["Bosses"][i] = string.gsub(name, " defeated", "")
-    if (i == steps) then
-      GottaGoFaster.CurrentCM["CurrentValues"][i] = GottaGoFaster.MobPointsToInteger(mobPoints);
-    end
+    local criteriaInfo = C_ScenarioInfo.GetCriteriaInfo(i);
+    GottaGoFaster.CurrentCM["CurrentValues"][i] = criteriaInfo.quantity;
+    GottaGoFaster.CurrentCM["FinalValues"][i] = criteriaInfo.totalQuantity;
+    GottaGoFaster.CurrentCM["Bosses"][i] = string.gsub(criteriaInfo.description, " defeated", "");
   end
 
   if (GottaGoFaster.CurrentCM["GoldTimer"]) then

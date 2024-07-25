@@ -2,16 +2,16 @@ function GottaGoFaster.UpdateTWInformation()
   if (GottaGoFaster.CurrentTW) then
     if (GottaGoFaster.CurrentTW["Completed"] == false) then
       for i = 1, GottaGoFaster.CurrentTW["Steps"] do
-        local name, _, status, curValue, finalValue = C_Scenario.GetCriteriaInfo(i);
-        if (finalValue == 0 or not finalValue) then
+        local criteriaInfo = C_ScenarioInfo.GetCriteriaInfo(i);
+        if (criteriaInfo.totalQuantity == 0 or not criteriaInfo.totalQuantity) then
           -- Final Value = 0 Means TW Complete
           GottaGoFaster.CompleteTW();
           return false;
         end
-        if (GottaGoFaster.CurrentTW["CurrentValues"][i] ~= curValue) then
+        if (GottaGoFaster.CurrentTW["CurrentValues"][i] ~= criteriaInfo.quantity) then
           -- Update Value
-          GottaGoFaster.CurrentTW["CurrentValues"][i] = curValue;
-          if (curValue == finalValue) then
+          GottaGoFaster.CurrentTW["CurrentValues"][i] = criteriaInfo.quantity;
+          if (criteriaInfo.quantity == criteriaInfo.totalQuantity) then
             -- Add Objective Time
             GottaGoFaster.CurrentTW["ObjectiveTimes"][i] = GottaGoFaster.ObjectiveCompleteString(GottaGoFaster.CurrentTW["Time"]);
           end

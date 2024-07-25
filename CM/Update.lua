@@ -8,20 +8,16 @@ function GottaGoFaster.UpdateCMInformation()
   if (GottaGoFaster.CurrentCM and next(GottaGoFaster.CurrentCM)) then
     if (GottaGoFaster.CurrentCM["Completed"] == false) then
       for i = 1, GottaGoFaster.CurrentCM["Steps"] do
-        local name, _, status, curValue, finalValue, _, _, mobPoints = C_Scenario.GetCriteriaInfo(i);
-        if (finalValue == 0 or not finalValue) then
+        local criteriaInfo = C_ScenarioInfo.GetCriteriaInfo(i);
+        if (criteriaInfo.totalQuantity == 0 or not criteriaInfo.totalQuantity) then
           -- Final Value = 0 Means CM Complete
           GottaGoFaster.CompleteCM();
           return false;
         end
-        if (GottaGoFaster.CurrentCM["CurrentValues"][i] ~= curValue) then
+        if (GottaGoFaster.CurrentCM["CurrentValues"][i] ~= criteriaInfo.quantity) then
           -- Update Value
-          if (i ~= GottaGoFaster.CurrentCM["Steps"]) then
-            GottaGoFaster.CurrentCM["CurrentValues"][i] = curValue;
-          else
-            GottaGoFaster.CurrentCM["CurrentValues"][i] = GottaGoFaster.MobPointsToInteger(mobPoints);
-          end
-          if (curValue == finalValue or ((i == GottaGoFaster.CurrentCM["Steps"]) and (curValue == 100))) then
+          GottaGoFaster.CurrentCM["CurrentValues"][i] = criteriaInfo.quantity;
+          if (criteriaInfo.quantity == criteriaInfo.totalQuantity) then -- or ((i == GottaGoFaster.CurrentCM["Steps"]) and (curValue == 100))) then
             -- Add Objective Time
             if (not GottaGoFaster.CurrentCM["ObjectiveTimes"][i]) then
               GottaGoFaster.CurrentCM["ObjectiveTimes"][i] = GottaGoFaster.ObjectiveCompleteString(
