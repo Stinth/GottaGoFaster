@@ -36,7 +36,7 @@ function GottaGoFaster.SetupTW(currentZoneID)
     local criteriaInfo = C_ScenarioInfo.GetCriteriaInfo(i);
     GottaGoFaster.CurrentTW["CurrentValues"][i] = criteriaInfo.quantity;
     GottaGoFaster.CurrentTW["FinalValues"][i] = criteriaInfo.totalQuantity;
-    GottaGoFaster.CurrentTW["Bosses"][i] = string.gsub(criteriaInfo.description, " defeated", "");;
+    GottaGoFaster.CurrentTW["Bosses"][i] = string.gsub(criteriaInfo.description, " defeated", "");
     if (criteriaInfo.quantity ~= 0) then
       GottaGoFaster.CurrentTW["LateStart"] = true;
       GottaGoFaster.StartTW();

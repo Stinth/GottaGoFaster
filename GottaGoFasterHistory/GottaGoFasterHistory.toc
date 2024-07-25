@@ -1,5 +1,5 @@
 ## Interface: 110002, 110000
-## Version: 1.4.1
+## Version: 1.4.2
 ## Title: GottaGoFasterHistory
 ## Notes: Saves History For GottaGoFaster
 ## SavedVariables: GottaGoFasterHistoryDB
