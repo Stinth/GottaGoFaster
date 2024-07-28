@@ -41,6 +41,10 @@ function GottaGoFaster.SetupTW(currentZoneID)
       GottaGoFaster.CurrentTW["LateStart"] = true;
       GottaGoFaster.StartTW();
     end
+    -- workaround for blizzard removing flat count values from API C_ScenarioInfo.GetCriteriaInfo(i)
+    if (i == steps and criteriaInfo.totalQuantity ~~= 0) do
+      GottaGoFaster.CurrentTW["CurrentValues"][i] = math.floor((criteriaInfo.quantity * criteriaInfo.totalQuantity) / 100);
+    end
   end
 
   if (GottaGoFaster.CheckPositions(GottaGoFaster.CurrentTW["CurrentZoneID"])) then

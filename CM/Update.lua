@@ -14,17 +14,32 @@ function GottaGoFaster.UpdateCMInformation()
           GottaGoFaster.CompleteCM();
           return false;
         end
-        if (GottaGoFaster.CurrentCM["CurrentValues"][i] ~= criteriaInfo.quantity) then
-          -- Update Value
-          GottaGoFaster.CurrentCM["CurrentValues"][i] = criteriaInfo.quantity;
-          if (criteriaInfo.quantity == criteriaInfo.totalQuantity) then -- or ((i == GottaGoFaster.CurrentCM["Steps"]) and (curValue == 100))) then
-            -- Add Objective Time
-            if (not GottaGoFaster.CurrentCM["ObjectiveTimes"][i]) then
-              GottaGoFaster.CurrentCM["ObjectiveTimes"][i] = GottaGoFaster.ObjectiveCompleteString(
-                GottaGoFaster.Utility.ShortenStr(GottaGoFaster.CurrentCM["Time"], 1));
+        -- workaround for blizzard removing flat count values from API C_ScenarioInfo.GetCriteriaInfo(i)
+        if (i == GottaGoFaster.CurrentTW["Steps"]) then
+          local currentCount = math.floor((criteriaInfo.quantity * criteriaInfo.totalQuantity) / 100)
+          if (GottaGoFaster.CurrentTW["CurrentValues"][i] ~= currentCount) then
+            -- Update Value
+            GottaGoFaster.CurrentTW["CurrentValues"][i] = currentCount;
+            if (currentCount == criteriaInfo.totalQuantity) then
+              -- Add Objective Time
+              GottaGoFaster.CurrentTW["ObjectiveTimes"][i] = GottaGoFaster.ObjectiveCompleteString(GottaGoFaster.CurrentTW["Time"]);
             end
           end
-        elseif (GottaGoFaster.CurrentCM["CurrentValues"][i] == GottaGoFaster.CurrentCM["FinalValues"][i] and not GottaGoFaster.CurrentCM["ObjectiveTimes"][i]) then
+        else
+          if (GottaGoFaster.CurrentCM["CurrentValues"][i] ~= criteriaInfo.quantity) then
+            -- Update Value
+            GottaGoFaster.CurrentCM["CurrentValues"][i] = criteriaInfo.quantity;
+            if (criteriaInfo.quantity == criteriaInfo.totalQuantity) then -- or ((i == GottaGoFaster.CurrentCM["Steps"]) and (curValue == 100))) then
+              -- Add Objective Time
+              if (not GottaGoFaster.CurrentCM["ObjectiveTimes"][i]) then
+                GottaGoFaster.CurrentCM["ObjectiveTimes"][i] = GottaGoFaster.ObjectiveCompleteString(
+                  GottaGoFaster.Utility.ShortenStr(GottaGoFaster.CurrentCM["Time"], 1));
+              end
+            end
+          end
+        end
+        
+        if (GottaGoFaster.CurrentCM["CurrentValues"][i] == GottaGoFaster.CurrentCM["FinalValues"][i] and not GottaGoFaster.CurrentCM["ObjectiveTimes"][i]) then
           -- Objective Already Complete But No Time Filled Out (Re-Log / Re-Zone)
           GottaGoFaster.CurrentCM["ObjectiveTimes"][i] = "?";
         end

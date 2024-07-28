@@ -8,14 +8,29 @@ function GottaGoFaster.UpdateTWInformation()
           GottaGoFaster.CompleteTW();
           return false;
         end
-        if (GottaGoFaster.CurrentTW["CurrentValues"][i] ~= criteriaInfo.quantity) then
-          -- Update Value
-          GottaGoFaster.CurrentTW["CurrentValues"][i] = criteriaInfo.quantity;
-          if (criteriaInfo.quantity == criteriaInfo.totalQuantity) then
-            -- Add Objective Time
-            GottaGoFaster.CurrentTW["ObjectiveTimes"][i] = GottaGoFaster.ObjectiveCompleteString(GottaGoFaster.CurrentTW["Time"]);
+        -- workaround for blizzard removing flat count values from API C_ScenarioInfo.GetCriteriaInfo(i)
+        if (i == GottaGoFaster.CurrentTW["Steps"]) then
+          local currentCount = math.floor((criteriaInfo.quantity * criteriaInfo.totalQuantity) / 100)
+          if (GottaGoFaster.CurrentTW["CurrentValues"][i] ~= currentCount) then
+            -- Update Value
+            GottaGoFaster.CurrentTW["CurrentValues"][i] = currentCount;
+            if (currentCount == criteriaInfo.totalQuantity) then
+              -- Add Objective Time
+              GottaGoFaster.CurrentTW["ObjectiveTimes"][i] = GottaGoFaster.ObjectiveCompleteString(GottaGoFaster.CurrentTW["Time"]);
+            end
           end
-        elseif (GottaGoFaster.CurrentTW["CurrentValues"][i] == GottaGoFaster.CurrentTW["FinalValues"][i] and not GottaGoFaster.CurrentTW["ObjectiveTimes"][i]) then
+        else
+          if (GottaGoFaster.CurrentTW["CurrentValues"][i] ~= criteriaInfo.quantity) then
+            -- Update Value
+            GottaGoFaster.CurrentTW["CurrentValues"][i] = criteriaInfo.quantity;
+            if (criteriaInfo.quantity == criteriaInfo.totalQuantity) then
+              -- Add Objective Time
+              GottaGoFaster.CurrentTW["ObjectiveTimes"][i] = GottaGoFaster.ObjectiveCompleteString(GottaGoFaster.CurrentTW["Time"]);
+            end
+          end
+        end
+
+        if (GottaGoFaster.CurrentTW["CurrentValues"][i] == GottaGoFaster.CurrentTW["FinalValues"][i] and not GottaGoFaster.CurrentTW["ObjectiveTimes"][i]) then
           -- Objective Already Complete But No Time Filled Out (Re-Log / Re-Zone)
           GottaGoFaster.CurrentTW["ObjectiveTimes"][i] = "?";
         end
