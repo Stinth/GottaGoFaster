@@ -5,6 +5,8 @@
 ## SavedVariables: GottaGoFasterDB
 ## OptionalDeps: Ace3
 ## X-Embeds: Ace3
+## X-Curse-Project-ID: 698438
+# X-Wago-ID: XXXXXXX // if you decide to put your addon on wago
 
 Embeds.xml
 
