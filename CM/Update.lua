@@ -9,6 +9,9 @@ function GottaGoFaster.UpdateCMInformation()
     if (GottaGoFaster.CurrentCM["Completed"] == false) then
       for i = 1, GottaGoFaster.CurrentCM["Steps"] do
         local criteriaInfo = C_ScenarioInfo.GetCriteriaInfo(i);
+        if (not criteriaInfo) then
+          return false;
+        end
         if (criteriaInfo.totalQuantity == 0 or not criteriaInfo.totalQuantity) then
           -- Final Value = 0 Means CM Complete
           GottaGoFaster.CompleteCM();

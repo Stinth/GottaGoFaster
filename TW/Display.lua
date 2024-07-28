@@ -3,6 +3,9 @@ function GottaGoFaster.UpdateTWInformation()
     if (GottaGoFaster.CurrentTW["Completed"] == false) then
       for i = 1, GottaGoFaster.CurrentTW["Steps"] do
         local criteriaInfo = C_ScenarioInfo.GetCriteriaInfo(i);
+        if (not criteriaInfo) then
+          return false;
+        end
         if (criteriaInfo.totalQuantity == 0 or not criteriaInfo.totalQuantity) then
           -- Final Value = 0 Means TW Complete
           GottaGoFaster.CompleteTW();
