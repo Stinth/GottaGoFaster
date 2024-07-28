@@ -15,14 +15,14 @@ function GottaGoFaster.UpdateCMInformation()
           return false;
         end
         -- workaround for blizzard removing flat count values from API C_ScenarioInfo.GetCriteriaInfo(i)
-        if (i == GottaGoFaster.CurrentTW["Steps"]) then
-          local currentCount = math.floor((criteriaInfo.quantity * criteriaInfo.totalQuantity) / 100)
-          if (GottaGoFaster.CurrentTW["CurrentValues"][i] ~= currentCount) then
+        if (i == GottaGoFaster.CurrentCM["Steps"]) then
+          local currentCount = tonumber(string.format("%.1f", (criteriaInfo.quantity * criteriaInfo.totalQuantity) / 100));
+          if (GottaGoFaster.CurrentCM["CurrentValues"][i] ~= currentCount) then
             -- Update Value
-            GottaGoFaster.CurrentTW["CurrentValues"][i] = currentCount;
+            GottaGoFaster.CurrentCM["CurrentValues"][i] = currentCount;
             if (currentCount == criteriaInfo.totalQuantity) then
               -- Add Objective Time
-              GottaGoFaster.CurrentTW["ObjectiveTimes"][i] = GottaGoFaster.ObjectiveCompleteString(GottaGoFaster.CurrentTW["Time"]);
+              GottaGoFaster.CurrentCM["ObjectiveTimes"][i] = GottaGoFaster.ObjectiveCompleteString(GottaGoFaster.CurrentCM["Time"]);
             end
           end
         else

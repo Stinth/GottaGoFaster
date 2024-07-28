@@ -42,8 +42,8 @@ function GottaGoFaster.SetupTW(currentZoneID)
       GottaGoFaster.StartTW();
     end
     -- workaround for blizzard removing flat count values from API C_ScenarioInfo.GetCriteriaInfo(i)
-    if (i == steps and criteriaInfo.totalQuantity ~~= 0) do
-      GottaGoFaster.CurrentTW["CurrentValues"][i] = math.floor((criteriaInfo.quantity * criteriaInfo.totalQuantity) / 100);
+    if (i == steps and criteriaInfo.totalQuantity ~= 0) then
+      GottaGoFaster.CurrentTW["CurrentValues"][i] = tonumber(string.format("%.1f", (criteriaInfo.quantity * criteriaInfo.totalQuantity) / 100));
     end
   end
 

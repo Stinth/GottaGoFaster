@@ -10,7 +10,7 @@ function GottaGoFaster.UpdateTWInformation()
         end
         -- workaround for blizzard removing flat count values from API C_ScenarioInfo.GetCriteriaInfo(i)
         if (i == GottaGoFaster.CurrentTW["Steps"]) then
-          local currentCount = math.floor((criteriaInfo.quantity * criteriaInfo.totalQuantity) / 100)
+          local currentCount = tonumber(string.format("%.1f", (criteriaInfo.quantity * criteriaInfo.totalQuantity) / 100));
           if (GottaGoFaster.CurrentTW["CurrentValues"][i] ~= currentCount) then
             -- Update Value
             GottaGoFaster.CurrentTW["CurrentValues"][i] = currentCount;
