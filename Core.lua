@@ -209,13 +209,16 @@ end
 
 function GottaGoFaster:ChatCommand(input)
   if (string.lower(input) == "debugmode") then
-    --local setting = not GottaGoFaster.GetDebugMode(nil);
     GottaGoFaster.SetDebugMode(nil, (not GottaGoFaster.GetDebugMode(nil)));
   elseif (string.lower(input) == "changelog") then
     GottaGoFaster.Changelog();
   else
-    InterfaceOptionsFrame_OpenToCategory(GottaGoFaster.optionsFrame);
-    InterfaceOptionsFrame_OpenToCategory(GottaGoFaster.optionsFrame);
+    local category = Settings.GetCategory("GottaGoFaster"); -- Replace with your actual category name
+    if category then
+      Settings.OpenToCategory("GottaGoFaster");
+    else
+      print("Category not found.");
+    end
   end
 end
 
