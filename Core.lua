@@ -217,7 +217,7 @@ function GottaGoFaster:ChatCommand(input)
     if category then
       Settings.OpenToCategory("GottaGoFaster");
     else
-      print("Category not found.");
+      print("GottaGoFaster settings category not found.");
     end
   end
 end
