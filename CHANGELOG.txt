@@ -1,3 +1,5 @@
+v1.4.10
+- correctly set ObjectiveTrackerFrame parent when shown (Thanks DNNYVST)
 v1.4.9
 - update toc
 - update libs
