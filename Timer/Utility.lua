@@ -123,14 +123,14 @@ function GottaGoFaster.IncreaseColorString(value)
 end
 
 function GottaGoFaster.HideObjectiveTracker()
+  self.originalObjectiveTrackerParent = ObjectiveTrackerFrame:GetParent()
   ObjectiveTrackerFrame:SetParent(GottaGoFasterHideFrame);
 end
 
 function GottaGoFaster.ShowObjectiveTracker()
-  ObjectiveTrackerFrame:SetParent(UIParent);
-  -- if (GottaGoFaster.db.profile.ObjectiveCollapsed == true) then
-  --   ObjectiveTracker_Collapse();
-  -- end
+  if ObjectiveTrackerFrame:GetParent() == self.GottaGoFasterHideFrame then
+    ObjectiveTrackerFrame:SetParent(self.originalObjectiveTrackerParent or UIParentRightManagedFrameContainer);
+  end
 end
 
 function GottaGoFaster.ToggleDemoMode()
