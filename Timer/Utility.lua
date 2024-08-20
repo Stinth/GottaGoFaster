@@ -128,7 +128,7 @@ function GottaGoFaster.HideObjectiveTracker()
 end
 
 function GottaGoFaster.ShowObjectiveTracker()
-  if ObjectiveTrackerFrame:GetParent() == self.GottaGoFasterHideFrame then
+  if ObjectiveTrackerFrame:GetParent() == GottaGoFasterHideFrame then
     ObjectiveTrackerFrame:SetParent(self.originalObjectiveTrackerParent or UIParentRightManagedFrameContainer);
   end
 end
