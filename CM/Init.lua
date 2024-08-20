@@ -48,13 +48,9 @@ function GottaGoFaster.SetupCM(CmID, currentZoneID)
 
   for i = 1, steps do
     local criteriaInfo = C_ScenarioInfo.GetCriteriaInfo(i);
-    GottaGoFaster.CurrentCM["CurrentValues"][i] = criteriaInfo.quantity;
+    GottaGoFaster.CurrentCM["CurrentValues"][i] = tonumber(string.match(criteriaInfo.quantityString, "%d+"));
     GottaGoFaster.CurrentCM["FinalValues"][i] = criteriaInfo.totalQuantity;
     GottaGoFaster.CurrentCM["Bosses"][i] = string.gsub(criteriaInfo.description, " defeated", "");
-    -- workaround for blizzard removing flat count values from API C_ScenarioInfo.GetCriteriaInfo(i)
-    if (i == steps and criteriaInfo.totalQuantity ~= 0) then
-      GottaGoFaster.CurrentCM["CurrentValues"][i] = tonumber(string.format("%.1f", (criteriaInfo.quantity * criteriaInfo.totalQuantity) / 100));
-    end
   end
 
   if (GottaGoFaster.CurrentCM["GoldTimer"]) then
