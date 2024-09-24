@@ -1,3 +1,11 @@
+function checkForDeathPenaltyAffix()
+  if GottaGoFaster.db.profile.AffixesInObjectives and GottaGoFaster.CurrentCM["Affixes"][152] then
+    return true
+  else
+    return false
+  end
+end  
+
 function GottaGoFaster.UpdateCMTimer()
   if (GottaGoFaster.CurrentCM and next(GottaGoFaster.CurrentCM)) then
     if (GottaGoFaster.CurrentCM["Completed"] == false) then
@@ -5,7 +13,7 @@ function GottaGoFaster.UpdateCMTimer()
       local startMin, startSec, goldMin, goldSec;
       if (GottaGoFaster.CurrentCM["StartTime"] and GottaGoFaster.GetTrueTimer()) then
         local currentTime = GetTime();
-        local deathPenalty = (GottaGoFaster.CurrentCM["Level"] and GottaGoFaster.CurrentCM["Level"] >= 7) and 15 or 5;
+        local deathPenaltyTime = checkForDeathPenaltyAffix() and 15 or 5;
         local deaths = GottaGoFaster.CurrentCM["Deaths"] * deathPenalty;
         GottaGoFaster.CurrentCM["CurrentTime"] = secs;
         secs = secs + deaths;
@@ -64,7 +72,6 @@ function GottaGoFaster.UpdateCMObjectives()
     local affixString = "";
     local increaseString = "";
     local goldMin, goldSec;
-    local hasExtraDeathPenalty = false;
     local curCM = GottaGoFaster.CurrentCM;
     if (GottaGoFaster.db.profile.IncreaseInObjectives and next(GottaGoFaster.CurrentCM["IncreaseTimers"])) then
       for k, v in pairs(GottaGoFaster.CurrentCM["IncreaseTimers"]) do
@@ -82,21 +89,13 @@ function GottaGoFaster.UpdateCMObjectives()
     end
     if (GottaGoFaster.db.profile.AffixesInObjectives and next(GottaGoFaster.CurrentCM["Affixes"])) then
       for k, v in pairs(GottaGoFaster.CurrentCM["Affixes"]) do
-        if k == 152 then -- Challenger's Peril
-          hasExtraDeathPenalty = true
-        end
         affixString = affixString .. v["name"] .. " - ";
       end
       objectiveString = objectiveString .. GottaGoFaster.ObjectiveExtraString(GottaGoFaster.Utility.ShortenStr(affixString, 3) .. "\n", GottaGoFaster.db.profile.AffixesColor);
     end
     if (GottaGoFaster.GetDeathInObjectives(nil) and GottaGoFaster.CurrentCM["Deaths"]) then
       local deathString = "";
-
-      local deathPenaltyTime = 5;
-      if (hasExtraDeathPenalty) then
-        deathPenaltyTime = 15;
-      end
-
+      local deathPenaltyTime = checkForDeathPenaltyAffix() and 15 or 5;
       local deathMin, deathSec = GottaGoFaster.SecondsToTime((GottaGoFaster.CurrentCM["Deaths"] * deathPenaltyTime));
       deathMin = GottaGoFaster.FormatTimeNoMS(deathMin);
       deathSec = GottaGoFaster.FormatTimeNoMS(deathSec);
@@ -124,4 +123,4 @@ function GottaGoFaster.UpdateCMObjectives()
     GottaGoFasterObjectiveFrame.font:SetText(objectiveString);
     GottaGoFaster.ResizeFrame();
   end
-end
+end        
