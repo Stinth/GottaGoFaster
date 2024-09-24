@@ -9,7 +9,11 @@ function GottaGoFaster.UpdateCMTimer()
         if GottaGoFaster.db.profile.AffixesInObjectives and GottaGoFaster.CurrentCM["Affixes"][152] then
           hasExtraDeathPenalty = true
         end
-        local deaths = GottaGoFaster.CurrentCM["Deaths"] and (hasExtraDeathPenalty and 15 or 5)
+        local deathPenaltyTime = 5;
+        if (hasExtraDeathPenalty) then
+          deathPenaltyTime = 15;
+        end
+        local deaths = GottaGoFaster.CurrentCM["Deaths"] * deathPenaltyTime;
         local secs = currentTime - GottaGoFaster.CurrentCM["StartTime"];
         GottaGoFaster.CurrentCM["CurrentTime"] = secs;
         secs = secs + deaths;
