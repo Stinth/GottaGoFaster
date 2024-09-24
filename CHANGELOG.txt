@@ -1,3 +1,5 @@
+v1.4.13
+- deal with 15sec death penalty
 v1.4.12
 - rework flat count values for blizzards new implementation
 v1.4.11
