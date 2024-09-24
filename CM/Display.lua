@@ -123,4 +123,4 @@ function GottaGoFaster.UpdateCMObjectives()
     GottaGoFasterObjectiveFrame.font:SetText(objectiveString);
     GottaGoFaster.ResizeFrame();
   end
-end        
+end
