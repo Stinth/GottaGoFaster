@@ -5,8 +5,8 @@ function GottaGoFaster.UpdateCMTimer()
       local startMin, startSec, goldMin, goldSec;
       if (GottaGoFaster.CurrentCM["StartTime"] and GottaGoFaster.GetTrueTimer()) then
         local currentTime = GetTime();
-        local deaths = GottaGoFaster.CurrentCM["Deaths"] * 5;
-        local secs = currentTime - GottaGoFaster.CurrentCM["StartTime"];
+        local deathPenalty = (GottaGoFaster.CurrentCM["Level"] and GottaGoFaster.CurrentCM["Level"] >= 7) and 15 or 5;
+        local deaths = GottaGoFaster.CurrentCM["Deaths"] * deathPenalty;
         GottaGoFaster.CurrentCM["CurrentTime"] = secs;
         secs = secs + deaths;
         if (secs < 0) then
