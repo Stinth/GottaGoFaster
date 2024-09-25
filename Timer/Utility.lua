@@ -44,6 +44,7 @@ function GottaGoFaster.SecsToTimeMS(secs)
 end
 
 function GottaGoFaster.CalculateRunTime(startTime, endTime, deaths, corrupt)
+-- TODO Implement Challenger's Peril
   local time = endTime - startTime;
   if (corrupt == false) then
     time = time + (deaths * 5);
