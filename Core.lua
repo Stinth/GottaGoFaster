@@ -180,7 +180,6 @@ function GottaGoFaster:CHALLENGE_MODE_DEATH_COUNT_UPDATED()
     GottaGoFaster.UpdateCMObjectives();
   end
 end
-  
 
 function GottaGoFaster:GOSSIP_SHOW()
   if (ggf.inCM == true and ggf.CurrentCM ~= nil and next(ggf.CurrentCM) ~= nil) then
