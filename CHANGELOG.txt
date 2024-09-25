@@ -1,3 +1,5 @@
+v1.4.14
+- deal with 15sec death penalty properly (Thanks ry-java)
 v1.4.13
 - deal with 15sec death penalty
 v1.4.12
