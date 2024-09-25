@@ -20,9 +20,10 @@ function GottaGoFaster:OnEnable()
     C_ChatInfo.RegisterAddonMessagePrefix("GottaGoFasterTW");
     self:RegisterEvent("CHALLENGE_MODE_COMPLETED");
     self:RegisterEvent("CHALLENGE_MODE_RESET");
-    self:RegisterEvent("CHALLENGE_MODE_START")
+    self:RegisterEvent("CHALLENGE_MODE_START");
+    self.RegisterEvent("CHALLENGE_MODE_DEATH_COUNT_UPDATED");
     self:RegisterEvent("GOSSIP_SHOW");
-    self:RegisterEvent("PLAYER_ENTERING_WORLD")
+    self:RegisterEvent("PLAYER_ENTERING_WORLD");
     self:RegisterEvent("SCENARIO_POI_UPDATE");
     self:RegisterEvent("WORLD_STATE_TIMER_START");
     self:RegisterEvent("ZONE_CHANGED_NEW_AREA")
@@ -165,12 +166,20 @@ function GottaGoFaster:WORLD_STATE_TIMER_START()
       if (timeCM ~= nil and timeCM <= 2) then
         GottaGoFaster.StartCM(0);
         GottaGoFaster.UpdateCMObjectives();
-      elseif (GottaGoFaster.CurrentCM["Deaths"]) then
-        GottaGoFaster.CurrentCM["Deaths"] = GottaGoFaster.CurrentCM["Deaths"] + 1;
-        GottaGoFaster.UpdateCMObjectives();
-      end
   end
 end
+
+function GottaGoFaster.CHALLENGE_MODE_DEATH_COUNT_UPDATED()
+  GottaGoFaster.Utility.DebugPrint("Death Count Updated")
+  if (ggf.inCM == false or GottaGoFaster.CurrentCM == nil or next(GottaGoFaster.CurrentCM) == nil or GottaGoFaster.CurrentCM["Steps"] == 0) then
+    GottaGoFaster.WhereAmI()
+  end
+  if (ggf.inCM and GottaGoFaster.CurrentCM["Completed"] == false) then
+    GottaGoFaster.CurrentCM["Deaths"] = GottaGoFaster.CurrentCM["Deaths"] + 1;
+    GottaGoFaster.UpdateCMObjectives();
+  end
+end
+  
 
 function GottaGoFaster:GOSSIP_SHOW()
   if (ggf.inCM == true and ggf.CurrentCM ~= nil and next(ggf.CurrentCM) ~= nil) then
