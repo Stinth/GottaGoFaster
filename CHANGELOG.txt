@@ -1,3 +1,6 @@
+v1.4.15
+- handle Challenger's Peril when calculating run time
+- rename very long affixes eg. "Xal'atath's Bargain: Voidbound" -> "Voidbound"
 v1.4.14
 - deal with 15sec death penalty properly (Thanks ry-java)
 v1.4.13
