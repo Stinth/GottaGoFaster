@@ -88,13 +88,15 @@ function GottaGoFaster.UpdateCMObjectives()
     if (GottaGoFaster.db.profile.LevelInObjectives and GottaGoFaster.CurrentCM["Level"]) then
       objectiveString = objectiveString .. GottaGoFaster.ObjectiveExtraString("Level " .. GottaGoFaster.CurrentCM["Level"] .. " - (+" .. GottaGoFaster.CurrentCM["Bonus"] .. "%) - " .. empowered .. "\n", GottaGoFaster.db.profile.LevelColor);
     end
-    if (GottaGoFaster.db.profile.AffixesInObjectives and next(GottaGoFaster.CurrentCM["Affixes"])) then
+    if next(GottaGoFaster.CurrentCM["Affixes"]) then
       for k, v in pairs(GottaGoFaster.CurrentCM["Affixes"]) do
         if k == 152 then -- Challenger's Peril
           hasExtraDeathPenalty = true
         end
-        affixString = affixString .. v["name"] .. " - ";
+        affixString = affixString .. GottaGoFaster.Utility.ShortenAffixName(v["name"]) .. " - ";
       end
+    end
+    if GottaGoFaster.db.profile.AffixesInObjectives then
       objectiveString = objectiveString .. GottaGoFaster.ObjectiveExtraString(GottaGoFaster.Utility.ShortenStr(affixString, 3) .. "\n", GottaGoFaster.db.profile.AffixesColor);
     end
     if (GottaGoFaster.GetDeathInObjectives(nil) and GottaGoFaster.CurrentCM["Deaths"]) then
