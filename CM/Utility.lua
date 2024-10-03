@@ -72,7 +72,7 @@ end
 
 function GottaGoFaster.PrintBestRun(run)
   if (GottaGoFaster.GetBestReport(nil)) then
-    local time = GottaGoFaster.SecsToTimeMS(GottaGoFaster.CalculateRunTime(run["startTime"], run["endTime"], run["deaths"], run["corrupt"]));
+    local time = GottaGoFaster.SecsToTimeMS(GottaGoFaster.CalculateRunTime(run["startTime"], run["endTime"], run["deaths"], run["affixes"], run["corrupt"]));
     local str = "Your Best Run At This Difficulty Is " .. wrap(time, colors.Gold) .. " (";
     for k, v in pairs(run["players"]) do
       str = str .. GottaGoFaster.PlayerStr(v["name"], v["class"]) .. ", ";
@@ -90,8 +90,8 @@ function GottaGoFaster.PrintNewBest(cm)
       startTime = GottaGoFaster.StringToTime(cm["Time"]);
       corrupt = true;
     end
-    local currentRunTime = GottaGoFaster.CalculateRunTime(startTime, GetTime(), cm["Deaths"], corrupt);
-    local bestRunTime = GottaGoFaster.CalculateRunTime(cm["BestRun"]["startTime"], cm["BestRun"]["endTime"], cm["BestRun"]["deaths"], cm["BestRun"]["corrupt"]);
+    local currentRunTime = GottaGoFaster.CalculateRunTime(startTime, GetTime(), cm["Deaths"], cm["affixes"], corrupt);
+    local bestRunTime = GottaGoFaster.CalculateRunTime(cm["BestRun"]["startTime"], cm["BestRun"]["endTime"], cm["BestRun"]["deaths"], cm["BestRun"]["affixes"], cm["BestRun"]["corrupt"]);
     if (currentRunTime < bestRunTime) then
       local runTime = GottaGoFaster.SecsToTimeMS(currentRunTime)
       ggf:Print("New Record! " .. wrap(runTime, colors.Gold));

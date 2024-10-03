@@ -80,7 +80,7 @@ local function BuildInfo(run)
   local deaths = run["deaths"];
   local affixes = run["affixes"];
   local date = run["timeStamp"];
-  local time = GottaGoFaster.CalculateRunTime(run["startTime"], run["endTime"], run["deaths"], run["corrupt"]);
+  local time = GottaGoFaster.CalculateRunTime(run["startTime"], run["endTime"], run["deaths"], run["affixes"], run["corrupt"]);
   local str = "\n";
   str = str .. wrap("Date: ", gold) .. BuildDate(date) .. "\n";
   str = str .. wrap("Run Time: ", gold) .. GottaGoFaster.SecsToTimeMS(time) .. "\n";

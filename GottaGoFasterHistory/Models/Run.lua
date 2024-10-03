@@ -134,7 +134,7 @@ function GottaGoFasterHistory:FindBestRun(CmID, level, affixes)
     local dungeon = history[CmID];
     for k, v in pairs(dungeon["runs"]) do
       if (v["level"] == level and GottaGoFasterHistory:MatchAffixes(v["affixes"], affixes)) then
-        local cTime = GottaGoFaster.CalculateRunTime(v["startTime"], v["endTime"], v["deaths"], v["corrupt"]);
+        local cTime = GottaGoFaster.CalculateRunTime(v["startTime"], v["endTime"], v["deaths"], v["affixes"], v["corrupt"]);
         if (cTime < time) then
           run = v;
           time = cTime;
