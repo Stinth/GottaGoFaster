@@ -35,4 +35,25 @@ function Utility.ShortenStr(str, by)
   end
 end
 
+function Utility.ShortenAffixName(affix)
+  local affixRenameTable = {
+    -- The War Withing: Season One
+    ["Xal'atath's Bargain: Ascendant"] = "Ascendant",
+    ["Xal'atath's Bargain: Frenzied"] = "Frenzied",
+    ["Xal'atath's Bargain: Voidbound"] = "Voidbound",
+    ["Xal'atath's Bargain: Oblivion"] = "Oblivion",
+    ["Xal'atath's Bargain: Devour"] = "Devour",
+    ["Xal'atath's Guile"] = "Guile",
+    ["Challenger's Peril"] = "Peril"
+  }
+  -- Check if the affix is in the rename table
+  if affixRenameTable[affix] then
+    return affixRenameTable[affix]
+  else
+    -- Return the original affix name if not found in the table
+    return affix
+  end
+end
+
+
 ggf.Utility = Utility;
