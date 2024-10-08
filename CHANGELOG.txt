@@ -1,3 +1,5 @@
+v1.4.17
+- revert breaking change
 v1.4.16
 - ensure consistent dictionary key for affixes
 v1.4.15
