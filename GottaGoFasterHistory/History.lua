@@ -32,7 +32,7 @@ function GottaGoFasterHistory:StoreRun(cCM)
       local timeStamp = GottaGoFasterHistory.Models.TimeStamp.New(dateInfo.month, dateInfo.monthDay, dateInfo.year, hours, mins);
       local level = cCM["Level"];
       local objectiveTimes = cCM["ObjectiveTimes"];
-      local affixes = cCM["Affixes"];
+      local affixes = cCM["affixes"];
       local players = GottaGoFasterHistory:GetPlayersFromGroup();
       if (startTime == nil) then
         corrupt = true;

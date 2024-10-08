@@ -5,12 +5,9 @@ function GottaGoFaster.UpdateCMTimer()
       local startMin, startSec, goldMin, goldSec;
       if (GottaGoFaster.CurrentCM["StartTime"] and GottaGoFaster.GetTrueTimer()) then
         local currentTime = GetTime();
-        local hasExtraDeathPenalty = false;
-        if GottaGoFaster.db.profile.AffixesInObjectives and GottaGoFaster.CurrentCM["Affixes"][152] then
-          hasExtraDeathPenalty = true
-        end
+
         local deathPenaltyTime = 5;
-        if (hasExtraDeathPenalty) then
+        if GottaGoFaster.CurrentCM["affixes"] and GottaGoFaster.CurrentCM["affixes"][152] then
           deathPenaltyTime = 15;
         end
         local deaths = GottaGoFaster.CurrentCM["Deaths"] * deathPenaltyTime;
@@ -88,8 +85,8 @@ function GottaGoFaster.UpdateCMObjectives()
     if (GottaGoFaster.db.profile.LevelInObjectives and GottaGoFaster.CurrentCM["Level"]) then
       objectiveString = objectiveString .. GottaGoFaster.ObjectiveExtraString("Level " .. GottaGoFaster.CurrentCM["Level"] .. " - (+" .. GottaGoFaster.CurrentCM["Bonus"] .. "%) - " .. empowered .. "\n", GottaGoFaster.db.profile.LevelColor);
     end
-    if next(GottaGoFaster.CurrentCM["Affixes"]) then
-      for k, v in pairs(GottaGoFaster.CurrentCM["Affixes"]) do
+    if next(GottaGoFaster.CurrentCM["affixes"]) then
+      for k, v in pairs(GottaGoFaster.CurrentCM["affixes"]) do
         if k == 152 then -- Challenger's Peril
           hasExtraDeathPenalty = true
         end
