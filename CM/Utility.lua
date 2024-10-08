@@ -119,8 +119,8 @@ function GottaGoFaster.BuildCMTooltip()
     local bonus = GottaGoFaster.CurrentCM["Bonus"];
     if (cmLevel) then
       newTooltip = empowered .. ": Level " .. cmLevel .. " - " .. tostring(bonus) .. "%\n\n";
-      if (next(GottaGoFaster.CurrentCM["affixes"])) then
-        for i, affixID in pairs(GottaGoFaster.CurrentCM["affixes"]) do
+      if (next(GottaGoFaster.CurrentCM["Affixes"])) then
+        for i, affixID in pairs(GottaGoFaster.CurrentCM["Affixes"]) do
           local affixName = affixID["name"];
           local affixDesc = affixID["desc"];
           newTooltip = newTooltip .. affixName .. "\n" .. affixDesc .. "\n\n";
