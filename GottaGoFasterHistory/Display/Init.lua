@@ -180,7 +180,7 @@ local function BuildAffixesFilter(history)
   local affix = aGUI:Create("Dropdown");
   local affixesList = ggfh:FindAffixesByDungeon(history);
   affix:SetRelativeWidth(0.33);
-  affix:SetLabel("Affixes");
+  affix:SetLabel("affixes");
   affix:SetList(affixesList);
   affix:SetValue(ggfh.Filter["Affix"]);
   affix:SetCallback("OnValueChanged", function(key) ggfh.Filter["Affix"] = key.value end);

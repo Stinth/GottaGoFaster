@@ -22,7 +22,7 @@ function GottaGoFaster.SetupCM(CmID, currentZoneID)
   GottaGoFaster.CurrentCM["AskedTime"] = nil;
   GottaGoFaster.CurrentCM["AskedForTimer"] = false;
   GottaGoFaster.CurrentCM["Version"] = constants.Version;
-  GottaGoFaster.CurrentCM["Affixes"] = {};
+  GottaGoFaster.CurrentCM["affixes"] = {};
   GottaGoFaster.CurrentCM["CurrentValues"] = {};
   GottaGoFaster.CurrentCM["FinalValues"] = {};
   GottaGoFaster.CurrentCM["ObjectiveTimes"] = {};
@@ -41,9 +41,9 @@ function GottaGoFaster.SetupCM(CmID, currentZoneID)
 
   for i, affixID in ipairs(affixes) do
     local affixName, affixDesc, affixNum = C_ChallengeMode.GetAffixInfo(affixID);
-    GottaGoFaster.CurrentCM["Affixes"][affixID] = {};
-    GottaGoFaster.CurrentCM["Affixes"][affixID]["name"] = affixName;
-    GottaGoFaster.CurrentCM["Affixes"][affixID]["desc"] = affixDesc;
+    GottaGoFaster.CurrentCM["affixes"][affixID] = {};
+    GottaGoFaster.CurrentCM["affixes"][affixID]["name"] = affixName;
+    GottaGoFaster.CurrentCM["affixes"][affixID]["desc"] = affixDesc;
   end
 
   for i = 1, steps do
@@ -62,7 +62,7 @@ function GottaGoFaster.SetupCM(CmID, currentZoneID)
   GottaGoFaster.BuildCMTooltip();
   GottaGoFaster.HideObjectiveTracker();
   GottaGoFaster.CreateDungeon(GottaGoFaster.CurrentCM["Name"], GottaGoFaster.CurrentCM["CmID"], GottaGoFaster.CurrentCM["Bosses"]);
-  GottaGoFaster.AskForBestRun(GottaGoFaster.CurrentCM["CmID"], GottaGoFaster.CurrentCM["Level"], GottaGoFaster.CurrentCM["Affixes"]);
+  GottaGoFaster.AskForBestRun(GottaGoFaster.CurrentCM["CmID"], GottaGoFaster.CurrentCM["Level"], GottaGoFaster.CurrentCM["affixes"]);
 end
 
 function GottaGoFaster.SetupFakeCM()
@@ -83,7 +83,7 @@ function GottaGoFaster.SetupFakeCM()
   GottaGoFaster.CurrentCM["AskedTime"] = nil;
   GottaGoFaster.CurrentCM["AskedForTimer"] = false;
   GottaGoFaster.CurrentCM["Version"] = constants.Version;
-  GottaGoFaster.CurrentCM["Affixes"] = {};
+  GottaGoFaster.CurrentCM["affixes"] = {};
   GottaGoFaster.CurrentCM["CurrentValues"] = {1, 1, 0, 0, 40};
   GottaGoFaster.CurrentCM["FinalValues"] = {1, 1, 1, 1, 160};
   GottaGoFaster.CurrentCM["ObjectiveTimes"] = {"1:15.460", "3:45.012"};
@@ -93,9 +93,9 @@ function GottaGoFaster.SetupFakeCM()
 
   for i, affixID in ipairs(affixes) do
     local affixName, affixDesc, affixNum = C_ChallengeMode.GetAffixInfo(affixID);
-    GottaGoFaster.CurrentCM["Affixes"][affixID] = {};
-    GottaGoFaster.CurrentCM["Affixes"][affixID]["name"] = affixName;
-    GottaGoFaster.CurrentCM["Affixes"][affixID]["desc"] = affixDesc;
+    GottaGoFaster.CurrentCM["affixes"][affixID] = {};
+    GottaGoFaster.CurrentCM["affixes"][affixID]["name"] = affixName;
+    GottaGoFaster.CurrentCM["affixes"][affixID]["desc"] = affixDesc;
   end
 
   if (GottaGoFaster.CurrentCM["GoldTimer"]) then
