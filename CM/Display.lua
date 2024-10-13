@@ -113,6 +113,7 @@ function GottaGoFaster.UpdateCMObjectives()
       if (GottaGoFaster.CurrentCM["StartTime"] ~= nil) then
         deathString = "Deaths: " .. curCM["Deaths"] .. " - Time Lost: " .. deathMin .. ":" .. deathSec;
       else
+        -- TODO: remove this if new death counter fix
         deathString = "Deaths: " .. curCM["Deaths"] .. "* - Time Lost: " .. deathMin .. ":" .. deathSec;
       end
       deathString = deathString .. "\n";

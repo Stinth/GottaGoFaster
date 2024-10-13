@@ -176,7 +176,9 @@ function GottaGoFaster:CHALLENGE_MODE_DEATH_COUNT_UPDATED()
     GottaGoFaster.WhereAmI()
   end
   if (ggf.inCM and GottaGoFaster.CurrentCM["Completed"] == false) then
-    GottaGoFaster.CurrentCM["Deaths"] = GottaGoFaster.CurrentCM["Deaths"] + 1;
+    -- GottaGoFaster.CurrentCM["Deaths"] = GottaGoFaster.CurrentCM["Deaths"] + 1;
+    local numDeaths, timeLost = C_ChallengeMode.GetDeathCount()
+    GottaGoFaster.CurrentCM["Deaths"] = numDeaths
     GottaGoFaster.UpdateCMObjectives();
   end
 end
