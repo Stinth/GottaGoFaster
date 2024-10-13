@@ -6,7 +6,7 @@ function GottaGoFaster.UpdateCMTimer()
       if (GottaGoFaster.CurrentCM["StartTime"] and GottaGoFaster.GetTrueTimer()) then
         local currentTime = GetTime();
         local hasExtraDeathPenalty = false;
-        if GottaGoFaster.db.profile.AffixesInObjectives and GottaGoFaster.CurrentCM["affixes"][152] then
+        if GottaGoFaster.db.profile.AffixesInObjectives and GottaGoFaster.CurrentCM and GottaGoFaster.CurrentCM["affixes"] and GottaGoFaster.CurrentCM["affixes"][152] then
           hasExtraDeathPenalty = true
         end
         local deathPenaltyTime = 5;
