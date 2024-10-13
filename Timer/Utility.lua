@@ -44,7 +44,6 @@ function GottaGoFaster.SecsToTimeMS(secs)
 end
 
 function GottaGoFaster.CalculateRunTime(startTime, endTime, deaths, affixes, corrupt)
--- TODO Implement Challenger's Peril
   local deathPenaltyTime = 5
   for k, v in pairs(affixes) do
     if k == 152 then -- Challenger's Peril
