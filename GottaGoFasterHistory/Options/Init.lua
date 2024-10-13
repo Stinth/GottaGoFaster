@@ -11,6 +11,10 @@ end
 function GottaGoFasterHistory:DayFix()
   local history = GottaGoFasterHistory:GetHistory();
 
+  if not history then
+    return
+  end
+
   for dungeonKey, dungeon in pairs(history) do
       local runs = dungeon["runs"];
 
@@ -23,6 +27,25 @@ function GottaGoFasterHistory:DayFix()
   end
 end
 
+function GottaGoFasterHistory:RepairAffixesMissing()
+  local history = GottaGoFasterHistory:GetHistory();
+
+  if not history then
+    return
+  end
+
+  for dungeonKey, dungeon in pairs(history) do
+      local runs = dungeon["runs"];
+
+      for runKey, run in pairs(runs) do
+          if not run["affixes"] then 
+            GottaGoFasterHistory.db.profile.History[dungeonKey].runs[runKey]["affixes"] = {}
+          end
+      end
+  end
+end
+
+
 function GottaGoFasterHistory:BugFixes()
   -- Day Fix
   if (not GottaGoFasterHistory:GetDayFix()) then
@@ -30,4 +53,5 @@ function GottaGoFasterHistory:BugFixes()
 
     GottaGoFasterHistory:SetDayFix(true);
   end
+  GottaGoFasterHistory:RepairAffixesMissing()
 end
