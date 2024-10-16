@@ -1,3 +1,5 @@
+v1.4.20
+- new release
 v1.4.19-Alpha
 - nil check
 v1.4.18-Alpha
