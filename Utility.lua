@@ -43,6 +43,7 @@ function Utility.ShortenAffixName(affix)
     ["Xal'atath's Bargain: Voidbound"] = "Voidbound",
     ["Xal'atath's Bargain: Oblivion"] = "Oblivion",
     ["Xal'atath's Bargain: Devour"] = "Devour",
+    ["Xal'atath's Bargain: Pulsar"] = "Pulsar",
     ["Xal'atath's Guile"] = "Guile",
     ["Challenger's Peril"] = "Peril"
   }
