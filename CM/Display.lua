@@ -5,12 +5,8 @@ function GottaGoFaster.UpdateCMTimer()
       local startMin, startSec, goldMin, goldSec;
       if (GottaGoFaster.CurrentCM["StartTime"] and GottaGoFaster.GetTrueTimer()) then
         local currentTime = GetTime();
-        local hasExtraDeathPenalty = false;
-        if GottaGoFaster.db.profile.AffixesInObjectives and GottaGoFaster.CurrentCM and GottaGoFaster.CurrentCM["affixes"] and GottaGoFaster.CurrentCM["affixes"][152] then
-          hasExtraDeathPenalty = true
-        end
         local deathPenaltyTime = 5;
-        if (hasExtraDeathPenalty) then
+        if GottaGoFaster.CurrentCM and GottaGoFaster.CurrentCM["affixes"] and GottaGoFaster.CurrentCM["affixes"][152] then
           deathPenaltyTime = 15;
         end
         local deaths = GottaGoFaster.CurrentCM["Deaths"] * deathPenaltyTime;
@@ -74,6 +70,7 @@ function GottaGoFaster.UpdateCMObjectives()
     local goldMin, goldSec;
     local hasExtraDeathPenalty = false;
     local curCM = GottaGoFaster.CurrentCM;
+    local deathPenaltyTime = 5;
     if (GottaGoFaster.db.profile.IncreaseInObjectives and next(GottaGoFaster.CurrentCM["IncreaseTimers"])) then
       for k, v in pairs(GottaGoFaster.CurrentCM["IncreaseTimers"]) do
         if (k ~= 1 or GottaGoFaster.db.profile.GoldTimer == false) then
@@ -91,7 +88,7 @@ function GottaGoFaster.UpdateCMObjectives()
     if next(GottaGoFaster.CurrentCM["affixes"]) then
       for k, v in pairs(GottaGoFaster.CurrentCM["affixes"]) do
         if k == 152 then -- Challenger's Peril
-          hasExtraDeathPenalty = true
+          deathPenaltyTime = 15;
         end
         affixString = affixString .. GottaGoFaster.Utility.ShortenAffixName(v["name"]) .. " - ";
       end
@@ -101,12 +98,6 @@ function GottaGoFaster.UpdateCMObjectives()
     end
     if (GottaGoFaster.GetDeathInObjectives(nil) and GottaGoFaster.CurrentCM["Deaths"]) then
       local deathString = "";
-
-      local deathPenaltyTime = 5;
-      if (hasExtraDeathPenalty) then
-        deathPenaltyTime = 15;
-      end
-
       local deathMin, deathSec = GottaGoFaster.SecondsToTime((GottaGoFaster.CurrentCM["Deaths"] * deathPenaltyTime));
       deathMin = GottaGoFaster.FormatTimeNoMS(deathMin);
       deathSec = GottaGoFaster.FormatTimeNoMS(deathSec);
