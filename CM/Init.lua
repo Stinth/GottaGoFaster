@@ -57,6 +57,11 @@ function GottaGoFaster.SetupCM(CmID, currentZoneID)
     GottaGoFaster.CurrentCM["IncreaseTimers"][1] = GottaGoFaster.CurrentCM["GoldTimer"];
     GottaGoFaster.CurrentCM["IncreaseTimers"][2] = GottaGoFaster.CurrentCM["GoldTimer"] * 0.8;
     GottaGoFaster.CurrentCM["IncreaseTimers"][3] = GottaGoFaster.CurrentCM["GoldTimer"] * 0.6;
+    if GottaGoFaster.CurrentCM and GottaGoFaster.CurrentCM["affixes"] and GottaGoFaster.CurrentCM["affixes"][152] then
+      local baseTimer = GottaGoFaster.CurrentCM["GoldTimer"] - 90;
+      GottaGoFaster.CurrentCM["IncreaseTimers"][2] = (baseTimer * 0.8) + 90;
+      GottaGoFaster.CurrentCM["IncreaseTimers"][3] = (baseTimer * 0.6) + 90;
+    end
   end
 
   GottaGoFaster.BuildCMTooltip();
