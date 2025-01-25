@@ -1,3 +1,5 @@
+v1.4.25
+- fix causing 2- and 3-chest timer to be more strict than neccessary
 v1.4.24
 - fix bug with death timer when challenger's peril is present, but affixes are not shown in objective (Thanks Maystine)
 - bump toc
