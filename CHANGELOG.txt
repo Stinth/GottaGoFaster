@@ -1,3 +1,6 @@
+v1.4.24
+- fix bug with death timer when challenger's peril is present, but affixes are not shown in objective (Thanks Maystine)
+- bump toc
 v1.4.23
 - rename "Xal’atath’s Bargain: Pulsar" -> "Pulsar"
 v1.4.22
