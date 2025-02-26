@@ -1,3 +1,5 @@
+v1.4.27
+- bump toc
 v1.4.26
 - bump toc
 v1.4.25
