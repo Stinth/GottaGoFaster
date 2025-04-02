@@ -1,5 +1,5 @@
 ## Interface: 110100
-## Version: 1.4.27
+## Version: 1.4.28
 ## Title: GottaGoFaster
 ## Notes: Mythic+ Timer & Objective Tracker, Ace3 Edition
 ## SavedVariables: GottaGoFasterDB
