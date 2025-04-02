@@ -6,7 +6,7 @@ function GottaGoFaster.UpdateCMTimer()
       if (GottaGoFaster.CurrentCM["StartTime"] and GottaGoFaster.GetTrueTimer()) then
         local currentTime = GetTime();
         local deathPenaltyTime = 5;
-        if GottaGoFaster.CurrentCM and GottaGoFaster.CurrentCM["affixes"] and GottaGoFaster.CurrentCM["affixes"][152] then
+        if GottaGoFaster.CurrentCM and GottaGoFaster.CurrentCM["affixes"] and GottaGoFaster.CurrentCM["affixes"][147] then
           deathPenaltyTime = 15;
         end
         local deaths = GottaGoFaster.CurrentCM["Deaths"] * deathPenaltyTime;
@@ -87,7 +87,7 @@ function GottaGoFaster.UpdateCMObjectives()
     end
     if next(GottaGoFaster.CurrentCM["affixes"]) then
       for k, v in pairs(GottaGoFaster.CurrentCM["affixes"]) do
-        if k == 152 then -- Challenger's Peril
+        if k == 147 then -- Challenger's Peril
           deathPenaltyTime = 15;
         end
         affixString = affixString .. GottaGoFaster.Utility.ShortenAffixName(v["name"]) .. " - ";

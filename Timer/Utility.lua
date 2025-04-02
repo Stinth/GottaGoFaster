@@ -46,7 +46,7 @@ end
 function GottaGoFaster.CalculateRunTime(startTime, endTime, deaths, affixes, corrupt)
   local deathPenaltyTime = 5
   for k, v in pairs(affixes) do
-    if k == 152 then -- Challenger's Peril
+    if k == 147 then -- Challenger's Peril
       deathPenaltyTime = 15
     end
   end
