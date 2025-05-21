@@ -1,3 +1,5 @@
+v1.4.29
+- revert previous faulty update to timers (Thanks Wolfdisco)
 v1.4.28
 - handle Xal'atath's Guile death timer increase replacing Peril
 v1.4.27
