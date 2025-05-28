@@ -1,3 +1,5 @@
+v1.4.30
+- fix broken death penalty
 v1.4.29
 - revert previous faulty update to timers (Thanks Wolfdisco)
 v1.4.28
