@@ -152,28 +152,10 @@ function GottaGoFaster.InitCM(CmID, currentZoneID)
   GottaGoFaster.Utility.DebugPrint("Showing Frames");
 end
 
-function GottaGoFaster.HandleSpy(mobID)
-  if (GottaGoFaster.GetSpyHelper(nil)) then
-    if (GossipTitleButton1:IsVisible()) then
-      GossipTitleButton1:Click();
-    elseif (GossipGreetingText ~= nil) then
-      local text = GossipGreetingText:GetText();
-      local short = "";
-      if (courtText[text] ~= nil) then
-        short = " [" .. courtText[text] .. "]";
-      end
-      SendChatMessage("GGF" .. short .. ": " .. text, "PARTY");
-    end
-  end
-end
 
 function GottaGoFaster.HandleGossip()
-  local mobID = GottaGoFaster.UnitID(UnitGUID("target"));
-  if (GottaGoFaster.GetAutoDialog(nil) and GossipTitleButton1:IsVisible() and autoExceptionList[mobID] == nil) then
+  if (GottaGoFaster.GetAutoDialog(nil) and GossipTitleButton1:IsVisible()) then
     GossipTitleButton1:Click();
-  end
-  if (GottaGoFaster.CurrentCM["ZoneID"] == 1571 and mobID == 107486) then
-    GottaGoFaster.HandleSpy(mobID);
   end
 end
 
@@ -194,22 +176,7 @@ function GottaGoFaster.HasTeeming(affixes)
   return false;
 end
 
-function GottaGoFaster.MouseoverUnitID()
-  local guid = UnitGUID("mouseover");
-  if (guid ~= nil) then
-    local guidSplit = utility.ExplodeStr("-", guid);
-    return tonumber(guidSplit[6]);
-  end
-  return nil;
-end
 
-function GottaGoFaster.UnitID(guid)
-  if (guid ~= nil) then
-    local guidSplit = utility.ExplodeStr("-", guid);
-    return tonumber(guidSplit[6]);
-  end
-  return nil;
-end
 
 -- Checks Nil And Gathers Data
 -- Mob Percentage Is Expected 10x Too High
@@ -237,33 +204,6 @@ function GottaGoFaster.GetMobPointValue(npcID)
     return GottaGoFaster.MobCountTable[npcID]["count"], GottaGoFaster.MobCountTable[npcID]["maxCount"];
   else
     return nil;
-  end
-end
-
-function GottaGoFaster.AddMobPointsToTooltip()
-  local npcID = GottaGoFaster.MouseoverUnitID();
-  local mapID = ggf.CurrentCM["ZoneID"];
-  local cmID = ggf.CurrentCM["CmID"]
-  if (npcID ~= nil and mapID ~= nil) then
-    local count = nil;
-    local maxCount = nil;
-
-    if (ggf.GetUseMdt() and MDT ~= nil and MDT.GetEnemyForces ~= nil) then
-      count, maxCount = MDT:GetEnemyForces(npcID);
-    else
-      count, maxCount = GottaGoFaster.GetMobPointValue(npcID)
-    end
-
-    if (count ~= nil and maxCount ~= nil) then
-      local weight = (count / maxCount) * 100;
-      local appendString = string.format(" - "..count.." (%.2f%%) ", weight);
-      local tooltipText = GameTooltip.TextLeft1:GetText();
-      if appendString and tooltipText then
-        if not strmatch(tooltipText, " %- "..count) then
-          GameTooltip:AppendText(appendString);
-        end
-      end
-    end
   end
 end
 
