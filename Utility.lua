@@ -45,7 +45,8 @@ function Utility.ShortenAffixName(affix)
     ["Xal'atath's Bargain: Devour"] = "Devour",
     ["Xal'atath's Bargain: Pulsar"] = "Pulsar",
     ["Xal'atath's Guile"] = "Guile",
-    ["Challenger's Peril"] = "Peril"
+    ["Challenger's Peril"] = "Peril",
+    ["Lindormi's Guidance"] = "Guidance"
   }
   -- Check if the affix is in the rename table
   if affixRenameTable[affix] then
