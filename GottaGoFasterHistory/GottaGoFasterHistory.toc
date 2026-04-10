@@ -1,4 +1,4 @@
-## Interface: 110105
+## Interface: 120000
 ## Version: 1.4.30
 ## Title: GottaGoFasterHistory
 ## Notes: Saves History For GottaGoFaster

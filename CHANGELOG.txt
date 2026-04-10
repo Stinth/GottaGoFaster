@@ -1,3 +1,5 @@
+v1.5.1-alpha
+- fix addon for midnight
 v1.4.30
 - fix broken death penalty
 v1.4.29
