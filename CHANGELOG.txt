@@ -1,4 +1,4 @@
-v1.5.31
+v1.5.2
 - bump toc
 v1.5.1-alpha
 - fix addon for midnight
